@@ -1,0 +1,27 @@
+[user]
+	name = Brian Hart
+	email = brian@tecton.ai
+[push]
+	default = current
+[alias]
+	root = rev-parse --show-toplevel
+[core]
+	editor = /usr/local/bin/nvim
+	pager = diff-so-fancy | less --tabs=4 -RFX
+	excludesfile = /Users/brian/.gitignore
+[color]
+	ui = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/

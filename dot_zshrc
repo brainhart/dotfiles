@@ -1,0 +1,13 @@
+#!/bin/zsh
+
+source ~/.zsh_plugins.sh
+
+PLUGINS=(prompt fzf git misc settings)
+PLUGIN_LOCATION="$HOME"/.zsh
+
+for plugin in $PLUGINS; do
+	source "$PLUGIN_LOCATION"/"$plugin".sh
+done
+
+local_conf="$HOME/local_bin/local_conf.sh"
+test -f "$local_conf" && source "$local_conf"
