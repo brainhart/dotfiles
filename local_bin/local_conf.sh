@@ -2,9 +2,9 @@
 
 LOCAL_PLUGINS=(tecton-dev tectonctl tecton-sdk env creds meme)
 
-DOTFILES="$HOME"/dotfiles
+LOCAL_PLUGIN_LOCATION="$HOME"/local_bin
 for plugin in $LOCAL_PLUGINS; do
-	source "$DOTFILES"/shell/local_bin/"$plugin".sh
+	source "$LOCAL_PLUGIN_LOCATION/$plugin".sh
 done
 
 eval "$(pyenv init -)"

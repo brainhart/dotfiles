@@ -564,12 +564,6 @@ if !exists('*s:setupWrapping')
   endfunction
 endif
 
-function! EditDot(file)
-  let path = $HOME . '/dotfiles/' . a:file
-  execute "tabe " . fnameescape(l:path)
-  execute "Glcd"
-endfunction
-
 " }}}
 
 " Plugins {{{
