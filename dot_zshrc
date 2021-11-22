@@ -138,9 +138,8 @@ gfpr() {
 
 alias install_zsh_plugins='antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh'
 
-alias ez="$EDITOR $HOME/.zshrc"
+alias ez="chezmoi edit $HOME/.zshrc"
 alias sz="source $HOME/.zshrc"
-
 
 alias ..="cd .."
 alias ...='cd ../..'
@@ -161,6 +160,9 @@ alias tls='tmux ls'
 alias tks='tmux kill-session -t'
 alias tkill='tmux kill-server'
 alias ta='tmux attach'
+
+# Dotfiles Edit
+alias dedit='chezmoi edit'
 
 
 export NVM_DIR="$HOME/.nvm"
