@@ -2,10 +2,8 @@ jeffreytse/zsh-vi-mode
 reegnz/jq-zsh-plugin
 bigH/git-fuzzy
 ohmyzsh/ohmyzsh path:plugins/fancy-ctrl-z
-bigH/git-fuzzy
 ohmyzsh/ohmyzsh path:plugins/colored-man-pages
 blimmer/zsh-aws-vault
 wting/autojump
-blimmer/zsh-aws-vault
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-syntax-highlighting

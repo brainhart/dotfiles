@@ -1,13 +1,227 @@
 #!/bin/zsh
 
+################################################################################
+############################ PLUGINS ###########################################
+################################################################################
+
 source ~/.zsh_plugins.sh
 
-PLUGINS=(prompt fzf git misc settings)
-PLUGIN_LOCATION="$HOME"/.zsh
+################################################################################
+############################ PROMPT ############################################
+################################################################################
 
-for plugin in $PLUGINS; do
-	source "$PLUGIN_LOCATION"/"$plugin".sh
-done
+autoload -Uz vcs_info
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+
+setopt prompt_subst
+zstyle ':vcs_info:git:*' formats '%F{green}  %b'
+zstyle ':vcs_info:*' enable git
+
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+
+if (($+TECTONCTL_PS1_PREFIX)); then
+  TECTONCTL_PREFIX="${TECTONCTL_PS1_PREFIX} "
+else
+  TECTONCTL_PREFIX=""
+fi
+_newline=$'\n'
+_lineup=$'\e[1A'
+_linedown=$'\e[1B'
+
+PROMPT="${_newline}%F{blue}${TECTONCTL_PREFIX}%n %f%B%F{green} %~%f%b\$vcs_info_msg_0_${_newline}%(?..%F{red} )%F{green}>> "
+RPROMPT=%{${_lineup}%}'%F{yellow}%T%f'%{${_linedown}%}
+
+################################################################################
+############################ FZF ###############################################
+################################################################################
+
+export FZF_DEFAULT_COMMAND='fd . '
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="fd -t d ."
+export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview' --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort' --header 'Press CTRL-Y to copy command into clipboard' --border"
+
+# https://github.com/jeffreytse/zsh-vi-mode#execute-extra-commands
+zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
+
+function f () {
+    fzf \
+        --border \
+        --preview '[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file \
+            || (highlight -O ansi -l {} || coderay {} || rougify {} || cat {}) 2> \
+            /dev/null | head -500' \
+    "$@"
+}
+
+# FZF search files to open in vim
+function vf() {
+  nvim "$@" $(f -m)
+}
+
+function fzf-down() {
+  fzf --height 50% "$@" --border
+}
+
+
+################################################################################
+############################ GIT ###############################################
+################################################################################
+
+alias g='git'
+
+alias gs='git status -sb'
+
+alias gd='git diff'
+alias gdh='git diff HEAD'
+
+alias gl='git log'
+
+alias ga='git add'
+alias gaa='git add -A'
+
+alias gc='git commit'
+alias gca='git commit --amend'
+alias gcan='git commit --amend --no-edit'
+alias gcm='git commit -m'
+
+alias gco='git checkout'
+
+alias gps='git push'
+alias gpsf='git push --force'
+
+alias gr='git rebase'
+alias grm='git rebase master'
+alias grim='git rebase -i master'
+
+alias gcd='cd $(git rev-parse --show-toplevel)'
+
+gqrb() {
+	git fetch origin "$@:$@" && git rebase "$@" --autostash
+}
+
+alias rebase='gqrb master'
+
+gbir() {
+  git rebase -i --autosquash $(git merge-base --fork-point "$@" $(git rev-parse --abbrev-ref HEAD))
+}
+
+is_in_git_repo() {
+  git rev-parse HEAD > /dev/null 2>&1
+}
+
+gb() {
+  is_in_git_repo || return
+  git branch -a --color=always | grep -v '/HEAD\s' | sort |
+  fzf-down --ansi --multi --tac --preview-window right:70% \
+    --preview 'git log --oneline --graph --date=short --pretty="format:%C(auto)%cd %h%d %s" $(sed s/^..// <<< {} | cut -d" " -f1) | head -200' |
+  sed 's/^..//' | cut -d' ' -f1 |
+  sed 's#^remotes/##'
+}
+
+co() {
+  git checkout $(gb)
+}
+
+gbd() {
+  git branch -D $(gb)
+}
+
+gfpr() {
+  is_in_git_repo || return
+  git fetch upstream pull/$1/head:pr-$1 && git checkout pr-$1
+}
+
+
+################################################################################
+############################ MISC ##############################################
+################################################################################
+
+alias install_zsh_plugins='antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh'
+
+alias ez="$EDITOR $HOME/.zshrc"
+alias sz="source $HOME/.zshrc"
+
+
+alias ..="cd .."
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+alias l='exa'
+alias ll='exa -l --header'
+alias lo='exa -l --sort=old --header'
+alias la='exa -la --header'
+alias lf='exa --header -d */'
+alias lt='exa -T'
+
+
+# Tmux
+alias tmux='tmux -2'
+alias tls='tmux ls'
+alias tks='tmux kill-session -t'
+alias tkill='tmux kill-server'
+alias ta='tmux attach'
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+
+alias cheat="navi --path $HOME/.navi/cheats"
+eval "$(navi widget zsh)"
+
+# https://blog.sher.pl/2014/03/21/how-to-boost-your-vim-productivity/
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    BUFFER="fg"
+    zle accept-line
+  else
+    zle push-input
+    zle clear-screen
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
+
+
+################################################################################
+############################ SETTINGS ##########################################
+################################################################################
+
+export TERM=xterm-256color
+export CLICOLOR=1
+export LS_COLORS='di=0;35'
+
+gruvbox_colors="$HOME/dotfiles/nvim/plugged/gruvbox/gruvbox_256palette_osx.sh"
+test -f "$gruvbox_colors" && source $gruvbox_colors
+
+export EDITOR='nvim'
+export CODE="${HOME}/code/source"
+
+
+PATH="$PATH:$HOME/bin"
+PATH="$PATH:$HOME/local_bin"
+PATH="$PATH:/usr/local/bin"
+PATH="$PATH:$HOME/.local/bin"
+PATH="$HOME/.pyenv/bin:$PATH"
+
+# Go installs packages here
+export GOPATH="$HOME/go"
+export GOBIN=$HOME/go/bin
+export PATH=$PATH:$GOBIN
+export PATH=$PATH:$GOROOT/bin
+export GO111MODULE=on
+
+set bell-style none
+setopt share_history
+
+
+################################################################################
+############################ LOCAL #############################################
+################################################################################
 
 local_conf="$HOME/local_bin/local_conf.sh"
 test -f "$local_conf" && source "$local_conf"
+
+
+
+
