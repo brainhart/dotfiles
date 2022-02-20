@@ -6,7 +6,6 @@
 [alias]
 	root = rev-parse --show-toplevel
 [core]
-	editor = /usr/local/bin/nvim
 	pager = diff-so-fancy | less --tabs=4 -RFX
 	excludesfile = /Users/brian/.gitignore
 [color]
@@ -27,3 +26,9 @@
 	insteadOf = https://github.com/
 [submodule]
 	recurse = true
+[pull]
+	rebase = true
+[fetch]
+	prune = true
+[diff]
+	colorMoved = zebra

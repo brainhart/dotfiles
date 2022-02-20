@@ -3,7 +3,6 @@ reegnz/jq-zsh-plugin
 bigH/git-fuzzy
 ohmyzsh/ohmyzsh path:plugins/fancy-ctrl-z
 ohmyzsh/ohmyzsh path:plugins/colored-man-pages
-blimmer/zsh-aws-vault
-wting/autojump
+ohmyzsh/ohmyzsh path:lib/history.zsh
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-syntax-highlighting
