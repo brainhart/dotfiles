@@ -59,6 +59,8 @@ Plug 'Raimondi/delimitMate'
 Plug 'machakann/vim-highlightedyank'
 Plug 'Yggdroot/indentLine'
 Plug 'morhetz/gruvbox'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'psf/black', { 'branch': 'stable' }
 let g:gruvbox_contrast_dark = 'hard'
 
 " Include user's extra bundle
@@ -67,6 +69,8 @@ if filereadable(expand("~/.config/nvim/local_bundles.vim"))
 endif
 
 call plug#end()
+
+
 
 " Required:
 filetype plugin indent on
@@ -204,12 +208,6 @@ vnoremap : ;
 " Clean search (highlight)
 nnoremap <silent> <leader><space> :noh<cr>
 
-" Switching windows
-"noremap <C-j> <C-w>j
-"noremap <C-k> <C-w>k
-"noremap <C-l> <C-w>l
-"noremap <C-h> <C-w>h
-
 " Create Splits
 noremap <leader>h :<C-u>split<CR>
 noremap <leader>v :<C-u>vsplit<CR>
@@ -254,7 +252,6 @@ iabbrev tehn then
 iabbrev Tehn Then
 
 cnoreabbr evim e $MYVIMRC
-cnoreabbr bad colorscheme badwolf
 
 
 "=================================================
@@ -309,7 +306,7 @@ nnoremap <silent> <leader>a :Rg<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>f :call fzf#vim#gitfiles('', fzf#vim#with_preview('right'))<CR>
 nnoremap <silent> <leader>m :History -m<CR>
-nnoremap <silent> <leader>c :Commands<CR>
+nnoremap <silent> <leader>c :w<bar>:! pre-commit run --files "%"<CR>
 nnoremap <silent> <leader>q :BLines<CR>
 nnoremap <silent> <leader>w :Windows<CR>
 
@@ -336,11 +333,40 @@ let g:go_highlight_types = 1
 let g:go_def_mapping_enabled = 0
 let g:go_metalinter_disabled = []
 
+" COc.nvim
+" use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+
 " MISC
 let g:highlightedyank_highlight_duration = 200
 let g:airline#extensions#virtualenv#enabled = 1
 " Default highlight is better than polyglot
 let g:polyglot_disabled = ['python', 'go']
 let g:python_highlight_all = 1
+let g:black_linelength = 120
+
+
+" FancySmancyComment(text, fill_char, width)
+" Create comment string with centered text
+" All arguments are optional
+function! FancySmancyComment(...)
+  let text = get(a:000, 0, '')
+  let fill = get(a:000, 1, '-')[0]
+  let width = get(a:000, 2, 80) - len(printf(&commentstring, '')) - len(text)
+  let left = width / 2
+  let right = width - left
+  put=printf(&commentstring, repeat(fill, left) . text . repeat(fill, right))
+endfunction
 
 let g:python3_host_prog = '/Users/brian/.pyenv/versions/neovim3/bin/python'
