@@ -182,6 +182,11 @@ augroup END
 " Auto apply dotfile changes
 autocmd BufWritePost ~/.local/share/chezmoi/* ! chezmoi apply --source-path "%"
 
+augroup git-wip
+  autocmd!
+  autocmd BufWritePost * :silent !cd "`dirname "%"`" && git wip save "WIP from vim" --editor -- "`basename "%"`"
+augroup END
+
 colorscheme gruvbox
 
 
