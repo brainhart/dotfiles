@@ -309,4 +309,3 @@ function get_aws_vault_keychain() {
 
 local_conf="$HOME/local_bin/local_conf.sh"
 test -f "$local_conf" && source "$local_conf"
-

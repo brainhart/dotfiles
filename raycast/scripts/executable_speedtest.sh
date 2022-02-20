@@ -14,14 +14,14 @@
 # @raycast.refreshTime 20m
 # @raycast.schemaVersion 1
 
-if ! command -v speedtest &> /dev/null; then
-	echo "speedtest command is required (https://www.speedtest.net/apps/cli).";
-	exit 1;
+if ! command -v speedtest &>/dev/null; then
+	echo "speedtest command is required (https://www.speedtest.net/apps/cli)."
+	exit 1
 fi
 
-if ! command -v jq &> /dev/null; then
-	echo "jq is required (https://stedolan.github.io/jq/).";
-	exit 1;
+if ! command -v jq &>/dev/null; then
+	echo "jq is required (https://stedolan.github.io/jq/)."
+	exit 1
 fi
 
 json=$(speedtest -f json-pretty)

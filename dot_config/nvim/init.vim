@@ -336,14 +336,14 @@ let g:go_metalinter_disabled = []
 " COc.nvim
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
 
 inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()
+	\ pumvisible() ? "\<C-n>" :
+	\ <SID>check_back_space() ? "\<Tab>" :
+	\ coc#refresh()
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
@@ -361,12 +361,12 @@ let g:black_linelength = 120
 " Create comment string with centered text
 " All arguments are optional
 function! FancySmancyComment(...)
-  let text = get(a:000, 0, '')
-  let fill = get(a:000, 1, '-')[0]
-  let width = get(a:000, 2, 80) - len(printf(&commentstring, '')) - len(text)
-  let left = width / 2
-  let right = width - left
-  put=printf(&commentstring, repeat(fill, left) . text . repeat(fill, right))
+	let text = get(a:000, 0, '')
+	let fill = get(a:000, 1, '-')[0]
+	let width = get(a:000, 2, 80) - len(printf(&commentstring, '')) - len(text)
+	let left = width / 2
+	let right = width - left
+	put=printf(&commentstring, repeat(fill, left) . text . repeat(fill, right))
 endfunction
 
 let g:python3_host_prog = '/Users/brian/.pyenv/versions/neovim3/bin/python'

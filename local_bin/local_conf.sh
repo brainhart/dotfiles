@@ -1,9 +1,8 @@
-#!/bin/zsh
+#!/bin/bash
 
 #-------------------------------------------------------------------------------
 #------------------------------------Tecton-------------------------------------
 #-------------------------------------------------------------------------------
-
 
 export TECTON="$HOME/code/source/tecton"
 export TECTON_REPO_PATH=$TECTON
@@ -28,14 +27,13 @@ alias sk='tecton_dev_py "$TECTON"/skaffoldw'
 alias t="tectonctl"
 alias vpn="tectonctl vpn"
 
-
 #-------------------------------------------------------------------------------
 #-----------------------------------tectondev-----------------------------------
 #-------------------------------------------------------------------------------
 
 function pypi_releases() {
 	PACKAGE_JSON_URL="$1"
-	curl -L -s "$PACKAGE_JSON_URL" | jq  -r '.releases | keys| .[]'
+	curl -L -s "$PACKAGE_JSON_URL" | jq -r '.releases | keys| .[]'
 }
 
 _TECTON_PYPI_URL='https://pypi.org/pypi/tecton/json'
@@ -51,21 +49,21 @@ function latest_tecton_stable() {
 function pymk-tecton() {
 	VERSION="$1"
 	pymk "tecton-$VERSION"
-	pip install 'tecton[pyspark]'==$VERSION
+	pip install 'tecton[pyspark]'=="$VERSION"
 }
 
 function pymk-beta() {
 	VERSION=$(latest_tecton_beta)
-	pymk-tecton $VERSION
+	pymk-tecton "$VERSION"
 }
 
 function pymk-stable() {
 	VERSION=$(latest_tecton_stable)
-	pymk-tecton $VERSION
+	pymk-tecton "$VERSION"
 }
 
-function build_whl () {
-	(cd $TECTON_REPO_PATH && bazel build //sdk/pypi:tecton_package_pypi)
+function build_whl() {
+	(cd "$TECTON_REPO_PATH" && bazel build //sdk/pypi:tecton_package_pypi)
 }
 
 function set_sdk_whl() {
@@ -87,20 +85,19 @@ function install_local_whl() {
 }
 
 function pymk-dev() {
-	GIT_CID=$(git -C $TECTON_REPO_PATH rev-parse --short head)
-	pymk tecton-$(GIT_CID)
+	GIT_CID=$(git -C "$TECTON_REPO_PATH" rev-parse --short head)
+	pymk tecton-"$GIT_CID"
 	install_local_whl
 }
 
-
-function javatests_are_broken () {
+function javatests_are_broken() {
 	ipcs -m | grep staff | awk '{print $2}' | xargs -P 1 -n 1 ipcrm -m
 }
 
-function delete_release_branches () {
+function delete_release_branches() {
 	_RELEASE_REGEX='release/\d{4}-\d{2}-\d{2}/\d+'
 	for refname in $(git for-each-ref --format='%(refname)' refs/heads/ | rg "$_RELEASE_REGEX"); do
-		git update-ref -d $refname
+		git update-ref -d "$refname"
 	done
 }
 
@@ -109,7 +106,7 @@ function dev_s3_upload() {
 	aws s3 cp "$1" "s3://$S3_BUCKET/$(whoami)/$(basename "$1")"
 }
 
-function upload_whl () {
+function upload_whl() {
 	build_whl
 	set_sdk_whl
 	dev_s3_upload "$SDK_WHL"
@@ -118,7 +115,6 @@ function upload_whl () {
 function select_cluster() {
 	tectonctl list-clusters | fzf --height 50% --border
 }
-
 
 function select_role() {
 	tectonctl list-roles | fzf --height 50% --border
@@ -144,15 +140,14 @@ function get_release_branch() {
 function get_release_branch_helper() {
 	TECTON_CLUSTER="$1"
 	COMMIT_ID=$(kubectl --context "$TECTON_CLUSTER" get deployment -n tecton metadata-server -o jsonpath="{..image}" | sed 's/.*://')
-	git -C $TECTON_REPO_PATH show -s --format=%s ${COMMIT_ID} | sed 's/Cut release branch //' | sed 's/ \[skip ci\]//'
+	git -C "$TECTON_REPO_PATH" show -s --format=%s "${COMMIT_ID}" | sed 's/Cut release branch //' | sed 's/ \[skip ci\]//'
 }
-
 
 #-------------------------------------------------------------------------------
 #------------------------------------Icebox-------------------------------------
 #-------------------------------------------------------------------------------
 
-function profile () {
+function profile() {
 	JAVA_HOME='/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home'
 	FILE='/tmp/OSW_test.hprof'
 	PID=$(jps | grep BazelTestRunner | awk '{print $1}' 2>/dev/null)
@@ -160,7 +155,6 @@ function profile () {
 	jcmd "$PID" GC.heap_dump "$FILE"
 	"$JAVA_HOME"/jhat "$FILE"
 }
-
 
 #-------------------------------------------------------------------------------
 #--------------------------------tecton env vars--------------------------------
