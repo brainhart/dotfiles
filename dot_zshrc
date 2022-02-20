@@ -14,7 +14,6 @@ test -f "$gruvbox_colors" && source $gruvbox_colors
 export EDITOR='nvim'
 export CODE="${HOME}/code/source"
 
-PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 PATH="$HOME/bin:$PATH"
 PATH="$HOME/.local/bin:$PATH"
 PATH="$HOME/local_bin:$PATH"
