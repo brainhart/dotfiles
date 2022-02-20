@@ -1,13 +1,13 @@
 [user]
 	name = Brian Hart
-	email = brian@tecton.ai
+	email = {{ .email | quote }}
 [push]
 	default = current
 [alias]
 	root = rev-parse --show-toplevel
 [core]
 	pager = diff-so-fancy | less --tabs=4 -RFX
-	excludesfile = /Users/brian/.gitignore
+	excludesfile = {{ .chezmoi.homeDir }}/.gitignore
 [color]
 	ui = true
 [color "diff-highlight"]
