@@ -1,5 +1,46 @@
 #!/bin/zsh
 
+#-------------------------------------------------------------------------------
+#-------------------------------settings and path-------------------------------
+#-------------------------------------------------------------------------------
+
+export TERM=xterm-256color
+export CLICOLOR=1
+export LS_COLORS='di=0;35'
+
+gruvbox_colors="$HOME/dotfiles/nvim/plugged/gruvbox/gruvbox_256palette_osx.sh"
+test -f "$gruvbox_colors" && source $gruvbox_colors
+
+export EDITOR='nvim'
+export CODE="${HOME}/code/source"
+
+PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+PATH="$HOME/bin:$PATH"
+PATH="$HOME/.local/bin:$PATH"
+PATH="$HOME/local_bin:$PATH"
+
+# Go installs packages here
+export GOPATH="$HOME"/go
+export GOBIN="$GOPATH"/bin
+export PATH="$GOBIN":"$PATH"
+export GO111MODULE=on
+
+export PATH=/usr/local/opt/postgresql@11/bin:"$PATH"
+export PATH="$(antibody path bigH/git-fuzzy)"/bin:$PATH
+
+set bell-style none
+
+# History
+HISTSIZE=5000
+HISTFILE="$HOME"/.zsh_history
+SAVEHIST=5000
+setopt appendhistory
+setopt sharehistory
+setopt incappendhistory
+
+RIPGREP_CONFIG_PATH="$HOME"/.ripgreprc
+
+
 # ------------------------------------------------------------------------------
 # -----------------------------------plugins------------------------------------
 # ------------------------------------------------------------------------------
@@ -122,12 +163,10 @@ is_in_git_repo() {
 
 gb() {
 	is_in_git_repo || return
-	git branch -l --color=always | grep -v '/HEAD\s' | sort |
-		fzf-down --ansi --multi --tac --preview-window right:70% \
-		--preview 'git log --oneline --graph --date=short --pretty="format:%C(auto)%cd %h%d %s" $(sed s/^..// <<< {} | cut -d" " -f1) | head -200' |
-		sed 's/^..//' | cut -d' ' -f1 |
-		sed 's#^remotes/##'
-	}
+	git for-each-ref refs/heads  --format='%(refname:short)' |
+					fzf-down --ansi --multi --tac --preview-window right:70% \
+					--preview 'git log --oneline --graph --date=short --pretty="format:%C(auto)%cd %h%d %s" {} | head -200'
+}
 
 gnb() {
 	DATE=$(date '+%Y-%m-%d')
@@ -146,6 +185,13 @@ gbd() {
 gfpr() {
 	is_in_git_repo || return
 	git fetch origin pull/$1/head && git checkout -q FETCH_HEAD
+}
+
+delete_current_branch () {
+	is_in_git_repo || return
+	refname=$(git rev-parse --abbrev-ref HEAD)
+	git checkout master
+	git update-ref -d $refname
 }
 
 
@@ -183,21 +229,6 @@ alias dedit='chezmoi edit'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-
-# https://blog.sher.pl/2014/03/21/how-to-boost-your-vim-productivity/
-fancy-ctrl-z () {
-if [[ $#BUFFER -eq 0 ]]; then
-	BUFFER="fg"
-	zle accept-line
-else
-	zle push-input
-	zle clear-screen
-fi
-}
-zle -N fancy-ctrl-z
-bindkey '^Z' fancy-ctrl-z
-
-
 
 #-------------------------------------------------------------------------------
 #-------------------------------------pyenv-------------------------------------
@@ -242,46 +273,8 @@ function pydel-tmp () {
 	fd --base-directory $PYENV_ROOT/versions 'tmp-*' -d 1 --type symlink --exec pyenv virtualenv-delete -f "{}"
 }
 
-
-
-#-------------------------------------------------------------------------------
-#-------------------------------settings and path-------------------------------
-#-------------------------------------------------------------------------------
-
-export TERM=xterm-256color
-export CLICOLOR=1
-export LS_COLORS='di=0;35'
-
-gruvbox_colors="$HOME/dotfiles/nvim/plugged/gruvbox/gruvbox_256palette_osx.sh"
-test -f "$gruvbox_colors" && source $gruvbox_colors
-
-export EDITOR='nvim'
-export CODE="${HOME}/code/source"
-
-
-PATH="$PATH:$HOME/bin"
-PATH="$PATH:$HOME/local_bin"
-PATH="$PATH:/usr/local/bin"
-PATH="$PATH:$HOME/.local/bin"
-
-# Go installs packages here
-export GOPATH="$HOME/go"
-export GOBIN=$HOME/go/bin
-export PATH=$PATH:$GOBIN
-export PATH=$PATH:$GOROOT/bin
-export GO111MODULE=on
-
-set bell-style none
-
-# History
-HISTSIZE=5000
-HISTFILE="$HOME"/.zsh_history
-SAVEHIST=5000
-setopt appendhistory
-setopt sharehistory
-setopt incappendhistory
-
-RIPGREP_CONFIG_PATH="$HOME"/.ripgreprc
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 #-------------------------------------------------------------------------------
 #---------------------------------one password----------------------------------

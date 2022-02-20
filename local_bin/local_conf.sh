@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 #-------------------------------------------------------------------------------
 #------------------------------------Tecton-------------------------------------
@@ -8,7 +8,6 @@
 export TECTON="$HOME/code/source/tecton"
 export TECTON_REPO_PATH=$TECTON
 export TECTON_REPO=$TECTON
-export PATH="$PATH:/usr/local/opt/postgresql@11/bin"
 export TECTONCTL_PATH=$TECTON/infrastructure/deployment/tectonctl.py
 export JAVA_HOME='/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home'
 
@@ -98,14 +97,11 @@ function javatests_are_broken () {
 	ipcs -m | grep staff | awk '{print $2}' | xargs -P 1 -n 1 ipcrm -m
 }
 
-function delete_branch () {
-	branch=$(git rev-parse --abbrev-ref HEAD)
-	git checkout master
-	git branch -D "$branch"
-}
-
 function delete_release_branches () {
-	git branch --list | rg "release" | xargs git branch -D
+	_RELEASE_REGEX='release/\d{4}-\d{2}-\d{2}/\d+'
+	for refname in $(git for-each-ref --format='%(refname)' refs/heads/ | rg "$_RELEASE_REGEX"); do
+		git update-ref -d $refname
+	done
 }
 
 function dev_s3_upload() {
@@ -178,14 +174,3 @@ export CHRONOSPHERE_ORG_NAME='tecton'
 # https://www.passwordstore.org/
 # export PASS_OATH_CREDENTIAL_NAME=aws_mfa
 # export AWS_VAULT_PROMPT=pass
-
-
-#-------------------------------------------------------------------------------
-#-------------------------------------pyenv-------------------------------------
-#-------------------------------------------------------------------------------
-
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
-# TODO: can we get rid of this yet?
-# alias nvim='~/nvim-osx64/bin/nvim'
