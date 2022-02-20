@@ -14,19 +14,6 @@ test -f "$gruvbox_colors" && source $gruvbox_colors
 export EDITOR='nvim'
 export CODE="${HOME}/code/source"
 
-PATH="$HOME/bin:$PATH"
-PATH="$HOME/.local/bin:$PATH"
-PATH="$HOME/local_bin:$PATH"
-
-# Go installs packages here
-export GOPATH="$HOME"/go
-export GOBIN="$GOPATH"/bin
-export PATH="$GOBIN":"$PATH"
-export GO111MODULE=on
-
-export PATH=/usr/local/opt/postgresql@11/bin:"$PATH"
-export PATH="$(antibody path bigH/git-fuzzy)"/bin:$PATH
-
 set bell-style none
 
 # History
@@ -37,14 +24,7 @@ setopt appendhistory
 setopt sharehistory
 setopt incappendhistory
 
-RIPGREP_CONFIG_PATH="$HOME"/.ripgreprc
-
-
-# ------------------------------------------------------------------------------
-# -----------------------------------plugins------------------------------------
-# ------------------------------------------------------------------------------
-
-source ~/.zsh_plugins.sh
+export RIPGREP_CONFIG_PATH="$HOME"/.ripgreprc
 
 
 # ------------------------------------------------------------------------------
@@ -83,9 +63,6 @@ export FZF_DEFAULT_COMMAND='fd . '
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd -t d ."
 export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview' --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort' --header 'Press CTRL-Y to copy command into clipboard' --border"
-
-# https://github.com/jeffreytse/zsh-vi-mode#execute-extra-commands
-zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
 
 function f () {
 fzf \
@@ -226,9 +203,6 @@ alias ta='tmux attach'
 # Dotfiles Edit
 alias dedit='chezmoi edit'
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-
 #-------------------------------------------------------------------------------
 #-------------------------------------pyenv-------------------------------------
 #-------------------------------------------------------------------------------
@@ -273,7 +247,6 @@ function pydel-tmp () {
 }
 
 eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 
 #-------------------------------------------------------------------------------
 #---------------------------------one password----------------------------------
