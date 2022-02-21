@@ -27,4 +27,6 @@ repos:
     rev: 2.1.6
     hooks:
       - id: shellcheck
+        types_or: ["shell", "bash", "sh"]
       - id: shfmt
+        types_or: ["shell", "bash", "sh", "zsh"]
