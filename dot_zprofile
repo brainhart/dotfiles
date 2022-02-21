@@ -34,8 +34,3 @@ export NVM_DIR="$HOME/.nvm"
 # ------------------------------------------------------------------------------
 
 source ~/.zsh_plugins.sh
-
-# https://github.com/jeffreytse/zsh-vi-mode#execute-extra-commands
-function zvm_after_init() {
-  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-}
