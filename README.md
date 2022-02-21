@@ -69,7 +69,6 @@ Work:
 - vegeta
 
 ## TODO
-- idempotent install of majority of packages on MacOS
 - codegrep function (use ccase to search across snake_case, PascalCase, CamelCase, etc)
 - Linux installs?
 - Better k8s functions and/or use tool like k9s
