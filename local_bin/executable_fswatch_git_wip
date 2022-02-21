@@ -15,6 +15,6 @@ _git_wip () {
   fi
 }
 
-fswatch -0 --event IsFile -e '.*\.git.*' "${CODE:-$HOME/code}" | while read -r -d "" file; do
+fswatch -0 --event IsFile -e '.*\.git.*' /Users/brian/code | while read -r -d "" file; do
   _git_wip "$file"
 done
