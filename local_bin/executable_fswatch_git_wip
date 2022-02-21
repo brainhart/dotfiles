@@ -4,17 +4,17 @@
 # if they are contained in a git repo.
 # Uses: https://github.com/bartman/git-wip
 
-_git_wip () {
-  file=$1
-  DIR=$(dirname "$file")
-  if git -C "$DIR" rev-parse > /dev/null 2>&1 ; then
-    git -C "$DIR" wip save "$file via file watcher" -- "$file"
-    echo "Saved $file in $(git -C "$DIR" wip info)"
-  else
-    echo "$file is not in a git repo, not saving"
-  fi
+_git_wip() {
+	file=$1
+	DIR=$(dirname "$file")
+	if git -C "$DIR" rev-parse >/dev/null 2>&1; then
+		git -C "$DIR" wip save -u "$file via file watcher"
+		echo "Saved $file in $(git -C "$DIR" wip info)"
+	else
+		echo "$file is not in a git repo, not saving"
+	fi
 }
 
 fswatch -0 --event IsFile -e '.*\.git.*' /Users/brian/code | while read -r -d "" file; do
-  _git_wip "$file"
+	_git_wip "$file"
 done
