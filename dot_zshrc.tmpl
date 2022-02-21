@@ -35,7 +35,11 @@ eval "$(starship init zsh)"
 export FZF_DEFAULT_COMMAND='fd . '
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd -t d ."
-export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview' --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort' --header 'Press CTRL-Y to copy command into clipboard' --border"
+export FZF_CTRL_R_OPTS="--preview 'echo {}' \
+	--preview-window down:3:hidden:wrap \
+	--bind '?:toggle-preview' \
+	--bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort' \
+	--header 'Press CTRL-Y to copy command into clipboard' --border"
 
 function f() {
 	fzf \
