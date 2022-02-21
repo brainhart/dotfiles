@@ -25,34 +25,8 @@ setopt incappendhistory
 
 export RIPGREP_CONFIG_PATH="$HOME"/.ripgreprc
 
-
-# ------------------------------------------------------------------------------
-# ------------------------------------prompt------------------------------------
-# ------------------------------------------------------------------------------
-
-autoload -Uz vcs_info
-precmd_vcs_info() { vcs_info }
-precmd_functions+=( precmd_vcs_info )
-
-setopt prompt_subst
-zstyle ':vcs_info:git:*' formats '%F{green}  %b'
-zstyle ':vcs_info:*' enable git
-
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-
-if (($+TECTONCTL_PS1_PREFIX)); then
-	TECTONCTL_PREFIX="${TECTONCTL_PS1_PREFIX} "
-else
-	TECTONCTL_PREFIX=""
-fi
-_newline=$'\n'
-_lineup=$'\e[1A'
-_linedown=$'\e[1B'
-
-PROMPT="${_newline}%F{blue}${TECTONCTL_PREFIX}%n %f%B%F{green} %~%f%b\$vcs_info_msg_0_${_newline}%(?..%F{red} )%F{green}>> "
-RPROMPT=%{${_lineup}%}'%F{yellow}%T%f'%{${_linedown}%}
-
-
+# Prompt
+eval "$(starship init zsh)"
 
 # ------------------------------------------------------------------------------
 # -------------------------------------fzf--------------------------------------
@@ -63,13 +37,13 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd -t d ."
 export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview' --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort' --header 'Press CTRL-Y to copy command into clipboard' --border"
 
-function f () {
-fzf \
-	--border \
-	--preview '[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file \
-	|| (highlight -O ansi -l {} || coderay {} || rougify {} || cat {}) 2> \
-	/dev/null | head -500' \
-	"$@"
+function f() {
+	fzf \
+		--border \
+		--preview '[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file \
+		|| (highlight -O ansi -l {} || coderay {} || rougify {} || cat {}) 2> \
+		/dev/null | head -500' \
+		"$@"
 }
 
 # FZF search files to open in vim
@@ -81,11 +55,9 @@ function fzf-down() {
 	fzf --height 50% "$@" --border
 }
 
-
 # ------------------------------------------------------------------------------
 # -------------------------------------git--------------------------------------
 # ------------------------------------------------------------------------------
-
 
 alias g='git'
 
@@ -133,14 +105,14 @@ gbir() {
 }
 
 is_in_git_repo() {
-	git rev-parse HEAD > /dev/null 2>&1
+	git rev-parse HEAD >/dev/null 2>&1
 }
 
 gb() {
 	is_in_git_repo || return
-	git for-each-ref refs/heads  --format='%(refname:short)' |
-					fzf-down --ansi --multi --tac --preview-window right:70% \
-					--preview 'git log --oneline --graph --date=short --pretty="format:%C(auto)%cd %h%d %s" {} | head -200'
+	git for-each-ref refs/heads --format='%(refname:short)' |
+		fzf-down --ansi --multi --tac --preview-window right:70% \
+			--preview 'git log --oneline --graph --date=short --pretty="format:%C(auto)%cd %h%d %s" {} | head -200'
 }
 
 gnb() {
@@ -162,13 +134,12 @@ gfpr() {
 	git fetch origin pull/$1/head && git checkout -q FETCH_HEAD
 }
 
-delete_current_branch () {
+delete_current_branch() {
 	is_in_git_repo || return
 	refname=$(git rev-parse --abbrev-ref HEAD)
 	git checkout master
 	git update-ref -d $refname
 }
-
 
 # ------------------------------------------------------------------------------
 # -------------------------------------misc-------------------------------------
@@ -191,7 +162,6 @@ alias la='exa -la --header'
 alias lf='exa --header -d */'
 alias lt='exa -T'
 
-
 # Tmux
 alias tmux='tmux -2'
 alias tls='tmux ls'
@@ -204,7 +174,7 @@ alias dedit='chezmoi edit'
 
 # Remember: (zsh is 1 indexed)
 # Code grep which matches for the text in all sane cases.
-function crg () {
+function crg() {
 	local word=$1
 	cases=("Camel" "Pascal" "Snake" "UpperSnake")
 
@@ -213,26 +183,28 @@ function crg () {
 	local c="${cases[1]}"
 	searchStr=$(ccase -t $c $word)
 
-	for (( i=2; i<=arraylength; i++ ));
-	do
+	for ((i = 2; i <= arraylength; i++)); do
 		local c="${cases[$i]}"
 		local conv=$(ccase -t $c $word)
 		searchStr="$searchStr|$conv"
 	done
 
-	(shift 1; rg $searchStr "$@")
+	(
+		shift 1
+		rg $searchStr "$@"
+	)
 }
-
 
 # https://github.com/jeffreytse/zsh-vi-mode#execute-extra-commands
 function zvm_after_init() {
-  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+	[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 }
+
+eval "$(zoxide init zsh)"
 
 #-------------------------------------------------------------------------------
 #-------------------------------------pyenv-------------------------------------
 #-------------------------------------------------------------------------------
-
 
 function ls_venvs() {
 	fd --base-directory $PYENV_ROOT/versions . -d 1 --type symlink
@@ -242,7 +214,7 @@ function select_venv() {
 	ls_venvs | fzf --preview 'PYENV_VERSION={} pip freeze' --height 50% --border
 }
 
-function pya () {
+function pya() {
 	_VENV=$(select_venv)
 	if [ ! -z $_VENV ]; then
 		pyenv activate $_VENV
@@ -250,17 +222,17 @@ function pya () {
 	fi
 }
 
-function pymk () {
+function pymk() {
 	_VENV="$1"
 	pyenv virtualenv $_VENV
 	pyenv activate $_VENV
 }
 
-function pymk-tmp () {
+function pymk-tmp() {
 	pymk "tmp-$RANDOM"
 }
 
-function pydel () {
+function pydel() {
 	_VENV=$(select_venv)
 	if [ ! -z $_VENV ]; then
 		pyenv virtualenv-delete -f $_VENV
@@ -268,7 +240,7 @@ function pydel () {
 	fi
 }
 
-function pydel-tmp () {
+function pydel-tmp() {
 	fd --base-directory $PYENV_ROOT/versions 'tmp-*' -d 1 --type symlink --exec pyenv virtualenv-delete -f "{}"
 }
 
@@ -299,7 +271,6 @@ function get_aws_vault_keychain() {
 	one_password_signin
 	op list items --vault work --tags aws | op get item - --fields aws-vault-keychain | pbcopy
 }
-
 
 # ------------------------------------------------------------------------------
 # ------------------------------------local-------------------------------------
