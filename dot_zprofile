@@ -24,6 +24,8 @@ export PATH="$HOME"/.cargo/bin:"$PATH"
 export PATH=/usr/local/opt/postgresql@11/bin:"$PATH"
 export PATH="$(antibody path bigH/git-fuzzy)"/bin:$PATH
 
+export CODE="${HOME}/code"
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 

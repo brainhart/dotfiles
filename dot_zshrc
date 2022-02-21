@@ -12,7 +12,6 @@ gruvbox_colors="$HOME/dotfiles/nvim/plugged/gruvbox/gruvbox_256palette_osx.sh"
 test -f "$gruvbox_colors" && source $gruvbox_colors
 
 export EDITOR='nvim'
-export CODE="${HOME}/code/source"
 
 set bell-style none
 
