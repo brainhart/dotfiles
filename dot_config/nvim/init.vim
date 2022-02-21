@@ -28,6 +28,8 @@ endif
 " Required:
 call plug#begin(expand('~/.config/nvim/plugged'))
 
+" Must be first file-type
+Plug 'alker0/chezmoi.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
