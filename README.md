@@ -69,6 +69,5 @@ Work:
 - vegeta
 
 ## TODO
-- codegrep function (use ccase to search across snake_case, PascalCase, CamelCase, etc)
 - Linux installs?
 - Better k8s functions and/or use tool like k9s

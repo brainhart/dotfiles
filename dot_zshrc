@@ -202,6 +202,27 @@ alias ta='tmux attach'
 # Dotfiles Edit
 alias dedit='chezmoi edit'
 
+# Remember: (zsh is 1 indexed)
+# Code grep which matches for the text in all sane cases.
+function crg () {
+	local word=$1
+	cases=("Camel" "Pascal" "Snake" "UpperSnake")
+
+	arraylength=${#cases[@]}
+
+	local c="${cases[1]}"
+	searchStr=$(ccase -t $c $word)
+
+	for (( i=2; i<=arraylength; i++ ));
+	do
+		local c="${cases[$i]}"
+		local conv=$(ccase -t $c $word)
+		searchStr="$searchStr|$conv"
+	done
+
+	(shift 1; rg $searchStr "$@")
+}
+
 #-------------------------------------------------------------------------------
 #-------------------------------------pyenv-------------------------------------
 #-------------------------------------------------------------------------------
