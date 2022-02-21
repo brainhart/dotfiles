@@ -234,8 +234,10 @@ do_save () {
 
 do_info () {
 	local branch=$1
-
-	die "info not implemented"
+	[ -z $branch ] && work_branch=$(get_work_branch)
+	local work_branch=$(get_work_branch)
+	local wip_branch="$WIP_PREFIX$work_branch"
+	echo "$wip_branch"
 }
 
 do_log () {
