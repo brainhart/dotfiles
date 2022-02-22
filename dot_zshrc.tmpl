@@ -121,7 +121,7 @@ gb() {
 
 gnb() {
 	DATE=$(date '+%Y-%m-%d')
-	BRANCH_NAME="brian/$DATE/$@"
+	BRANCH_NAME="{{ .chezmoi.username }}/$DATE/$@"
 	git checkout -b "$BRANCH_NAME"
 }
 
@@ -172,7 +172,6 @@ alias tls='tmux ls'
 alias tks='tmux kill-session -t'
 alias tkill='tmux kill-server'
 alias ta='tmux attach'
-alias tns='tmux new -s'
 
 # Dotfiles Edit
 alias dedit='chezmoi edit'
