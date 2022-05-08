@@ -60,6 +60,3 @@ tags*
 
 .vim/*
 *.log
-
-.personal/
-personal/
