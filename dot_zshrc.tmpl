@@ -1,5 +1,51 @@
 #!/bin/zsh
 
+
+# ------------------------------------------------------------------------------
+# -------------------------------------path-------------------------------------
+# ------------------------------------------------------------------------------
+
+PATH="$HOME/bin:$PATH"
+PATH="$HOME/.local/bin:$PATH"
+PATH="$HOME/local_bin:$PATH"
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+# Go installs packages here
+export GOPATH="$HOME"/go
+export GOBIN="$GOPATH"/bin
+export PATH="$GOBIN":"$PATH"
+export GO111MODULE=on
+
+export PATH="$HOME"/.cargo/bin:"$PATH"
+
+export PATH=/usr/local/opt/postgresql@11/bin:"$PATH"
+export PATH="$(antibody path bigH/git-fuzzy)"/bin:$PATH
+
+export CODE="${HOME}/code"
+
+export NVM_DIR="$HOME/.nvm"
+
+eval "$(pyenv init --path)"
+eval "$(pyenv virtualenv-init -)"
+
+
+# ------------------------------------------------------------------------------
+# -----------------------------------plugins------------------------------------
+# ------------------------------------------------------------------------------
+
+source ~/.zsh_plugins.sh
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh" # This loads nvm
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+eval "$(pyenv init -)"
+
+# https://github.com/jeffreytse/zsh-vi-mode#execute-extra-commands
+function zvm_after_init() {
+	[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+}
+
 #-------------------------------------------------------------------------------
 #-------------------------------settings and path-------------------------------
 #-------------------------------------------------------------------------------
@@ -24,9 +70,6 @@ setopt sharehistory
 setopt incappendhistory
 
 export RIPGREP_CONFIG_PATH="$HOME"/.ripgreprc
-
-# Prompt
-eval "$(starship init zsh)"
 
 # ------------------------------------------------------------------------------
 # -------------------------------------fzf--------------------------------------
@@ -121,7 +164,7 @@ gb() {
 
 gnb() {
 	DATE=$(date '+%Y-%m-%d')
-	BRANCH_NAME="{{ .chezmoi.username }}/$DATE/$@"
+	BRANCH_NAME="brian/$DATE/$@"
 	git checkout -b "$BRANCH_NAME"
 }
 
@@ -180,7 +223,7 @@ alias dedit='chezmoi edit'
 # Code grep which matches for the text in all sane cases.
 function crg() {
 	local word=$1
-	cases=("Camel" "Pascal" "Snake" "UpperSnake")
+	cases=("Camel" "Pascal" "Snake" "UpperSnake" "Kebab")
 
 	arraylength=${#cases[@]}
 
@@ -198,13 +241,6 @@ function crg() {
 		rg $searchStr "$@"
 	)
 }
-
-# https://github.com/jeffreytse/zsh-vi-mode#execute-extra-commands
-function zvm_after_init() {
-	[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-}
-
-eval "$(zoxide init zsh)"
 
 #-------------------------------------------------------------------------------
 #-------------------------------------pyenv-------------------------------------
@@ -247,8 +283,6 @@ function pydel() {
 function pydel-tmp() {
 	fd --base-directory $PYENV_ROOT/versions 'tmp-*' -d 1 --type symlink --exec pyenv virtualenv-delete -f "{}"
 }
-
-eval "$(pyenv init -)"
 
 #-------------------------------------------------------------------------------
 #---------------------------------one password----------------------------------
