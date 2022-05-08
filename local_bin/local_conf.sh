@@ -77,11 +77,8 @@ function set_sdk_whl() {
 	fi
 }
 
-# TODO: use bazel tool to install wheel
 function install_local_whl() {
-	build_whl
-	set_sdk_whl
-	pip install --no-deps --force-reinstall "$SDK_WHL"
+	(cd "$TECTON_REPO_PATH" && bazel run //sdk/pypi:pip_install)
 }
 
 function pymk-dev() {
