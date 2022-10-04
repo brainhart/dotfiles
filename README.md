@@ -14,7 +14,6 @@ Web (desire manual install):
 - Chrome
 - Slack
 - Spotify
-- Docker
 
 Work:
 - aws-vault
