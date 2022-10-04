@@ -50,34 +50,31 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 10
 
 
 
-#---------------------------------Energy Saving---------------------------------
-
-# Enable lid wakeup
-sudo pmset -a lidwake 1
-
-# Restart automatically on power loss
-sudo pmset -a autorestart 1
-
-# Restart automatically if the computer freezes
-sudo systemsetup -setrestartfreeze on
-
-# Sleep the display after 15 minutes
-sudo pmset -a displaysleep 15
-
-# Disable machine sleep while charging
-sudo pmset -c sleep 0
-
-# Set machine sleep to 5 minutes on battery
-sudo pmset -b sleep 5
-
-# Never go into computer sleep mode
-sudo systemsetup -setcomputersleep Off > /dev/null
-
-# Hibernation mode
-# 0: Disable hibernation (speeds up entering sleep mode)
-# 3: Copy RAM to disk so the system state can still be restored in case of a
-#    power failure.
-sudo pmset -a hibernatemode 0
+# #---------------------------------Energy Saving--------------------------------- -->
+# 
+# # Enable lid wakeup -->
+# sudo pmset -a lidwake 1 -->
+# 
+# # Restart automatically on power loss -->
+# sudo pmset -a autorestart 1 -->
+# 
+# # Restart automatically if the computer freezes -->
+# sudo systemsetup -setrestartfreeze on -->
+# 
+# # Disable machine sleep while charging -->
+# sudo pmset -c sleep 0 -->
+# 
+# # Set machine sleep to 5 minutes on battery -->
+# sudo pmset -b sleep 5 -->
+# 
+# # Sleep the display after 15 minutes -->
+# sudo pmset -a displaysleep 15 -->
+# 
+# # Hibernation mode -->
+# # 0: Disable hibernation (speeds up entering sleep mode) -->
+# # 3: Copy RAM to disk so the system state can still be restored in case of a -->
+# #    power failure. -->
+# sudo pmset -a hibernatemode 0 -->
 
 
 #------------------------------------Screen-------------------------------------
@@ -176,11 +173,5 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 
 #------------------------------kill affected apps-------------------------------
 
-for app in "Dock" \
-	"Finder" \
-	"Messages" \
-	"SystemUIServer"; do
-	killall "${app}" &> /dev/null
-done
 echo "Done. Note that some of these changes require a logout/restart to take effect."
 {{- end }}
