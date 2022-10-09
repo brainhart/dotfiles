@@ -1,0 +1,298 @@
+#!/bin/zsh
+
+
+# ------------------------------------------------------------------------------
+# -------------------------------------path-------------------------------------
+# ------------------------------------------------------------------------------
+export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
+export CODE="${HOME}/code"
+
+export NVM_DIR="$XDG_DATA_HOME/nvm"
+
+eval "$(pyenv init --path)"
+eval "$(pyenv virtualenv-init -)"
+
+
+# ------------------------------------------------------------------------------
+# -----------------------------------plugins------------------------------------
+# ------------------------------------------------------------------------------
+
+_antidote_dir=${ZDOTDIR:-~}/.antidote
+if [[ ! -d $_antidote_dir ]]; then
+	git clone --depth=1 https://github.com/mattmc3/antidote.git $_antidote_dir
+fi
+source $_antidote_dir/antidote.zsh
+antidote load
+
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh" # This loads nvm
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+eval "$(pyenv init -)"
+
+# https://github.com/jeffreytse/zsh-vi-mode#execute-extra-commands
+# function zvm_after_init() {
+# 	[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# }
+
+#-------------------------------------------------------------------------------
+#-------------------------------settings and path-------------------------------
+#-------------------------------------------------------------------------------
+
+export TERM=xterm-256color
+export CLICOLOR=1
+export LS_COLORS='di=0;35'
+
+set bell-style none
+
+# History
+HISTSIZE=5000
+HISTFILE="$XDG_CACHE_HOME"/zsh/.zsh_history
+SAVEHIST=5000
+setopt appendhistory
+setopt sharehistory
+setopt incappendhistory
+
+export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME"/ripgrep/ripgreprc
+
+# ------------------------------------------------------------------------------
+# -------------------------------------fzf--------------------------------------
+# ------------------------------------------------------------------------------
+
+function f() {
+	fzf --border --preview 'bat --style=numbers --color=always --line-range :500 {}' "$@"
+}
+
+
+# FZF search files to open in vim
+function vf() {
+	FILE=$(f)
+	if [ ! -z $FILE ]; then
+		nvim "$@" "$FILE"
+	fi
+}
+
+function fcd() {
+	DIR=$(fd -t d . | fzf --border --preview 'tree {}')
+	if [ ! -z $DIR ]; then
+		cd "$DIR"
+	fi
+}
+
+# fh - repeat history
+function fh() {
+  print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac --height 50% --border| sed -E 's/ *[0-9]*\*? *//' | sed -E 's/\\/\\\\/g')
+}
+
+# ------------------------------------------------------------------------------
+# -------------------------------------git--------------------------------------
+# ------------------------------------------------------------------------------
+
+alias g='git'
+
+alias gs='git status -sb'
+
+alias gd='git diff'
+alias gdh='git diff HEAD'
+
+alias gl='git log'
+
+alias ga='git add'
+alias gaa='git add -A'
+
+alias gc='git commit'
+alias gca='git commit --amend'
+alias gcan='git commit --amend --no-edit'
+alias gcm='git commit -m'
+
+alias gps='git push -u'
+alias gpsf='git push --force'
+
+alias gr='git rebase'
+alias grm='git rebase master'
+alias grim='git rebase -i master'
+
+alias gcd='cd $(git rev-parse --show-toplevel)'
+
+function gg() {
+	MAIN=$(git main-branch)
+	git checkout -q "$MAIN"
+	git fetch --prune -q
+	git rebase -q origin/"$MAIN"
+	for branch in $(git for-each-ref --format '%(refname:short) %(upstream:track)' refs/heads | awk '$2 == "[gone]" {print $1}'); do
+		git branch -D $branch
+	done
+}
+
+function gqrb() {
+	git fetch origin "$@:$@" && git rebase "$@" --autostash
+}
+
+alias rebase='gqrb master'
+
+function gbir() {
+	git rebase -i --autosquash $(git merge-base --fork-point "$@" $(git rev-parse --abbrev-ref HEAD))
+}
+
+function is_in_git_repo() {
+	git rev-parse HEAD >/dev/null 2>&1
+}
+
+function gb() {
+	is_in_git_repo || return
+	git for-each-ref refs/heads --format='%(refname:short)' |
+		fzf --height 50% --border --ansi --multi --tac --preview-window right:70% \
+			--preview 'git log --oneline --graph --date=short --pretty="format:%C(auto)%cd %h%d %s" {} | head -200'
+}
+
+function gnb() {
+	DATE=$(date '+%Y-%m-%d')
+	BRANCH_NAME="brian/$DATE/$@"
+	git checkout -b "$BRANCH_NAME"
+}
+
+function co() {
+	git checkout $(gb)
+}
+
+function gbd() {
+	git branch -D $(gb)
+}
+
+function gfpr() {
+	is_in_git_repo || return
+	git fetch origin pull/$1/head && git checkout -q FETCH_HEAD
+}
+
+function delete_current_branch() {
+	is_in_git_repo || return
+	refname=$(git rev-parse --abbrev-ref HEAD)
+	git checkout master
+	git update-ref -d $refname
+}
+
+# ------------------------------------------------------------------------------
+# -------------------------------------misc-------------------------------------
+# ------------------------------------------------------------------------------
+
+alias ez="chezmoi edit $XDG_CONFIG_HOME/zsh/.zshrc"
+alias sz="source $XDG_CONFIG_HOME/zsh/.zshrc"
+
+alias ..="cd .."
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+alias l='exa'
+alias ll='exa -l --header'
+alias lo='exa -l --sort=old --header'
+alias la='exa -la --header'
+alias lf='exa --header -d */'
+alias lt='exa -T'
+
+# Tmux
+alias tmux='tmux -2'
+alias tls='tmux ls'
+alias tks='tmux kill-session -t'
+alias tkill='tmux kill-server'
+alias ta='tmux attach'
+
+# Dotfiles Edit
+alias dedit='chezmoi edit'
+
+# Remember: (zsh is 1 indexed)
+# Code grep which matches for the text in all sane cases.
+function crg() {
+	local word=$1
+	cases=("Camel" "Pascal" "Snake" "UpperSnake" "Kebab")
+
+	arraylength=${#cases[@]}
+
+	local c="${cases[1]}"
+	searchStr=$(ccase -t $c $word)
+
+	for ((i = 2; i <= arraylength; i++)); do
+		local c="${cases[$i]}"
+		local conv=$(ccase -t $c $word)
+		searchStr="$searchStr|$conv"
+	done
+
+	(
+		shift 1
+		rg $searchStr "$@"
+	)
+}
+
+#-------------------------------------------------------------------------------
+#-------------------------------------pyenv-------------------------------------
+#-------------------------------------------------------------------------------
+
+function ls_venvs() {
+	fd --base-directory $PYENV_ROOT/versions . -d 1 --type symlink
+}
+
+function select_venv() {
+	ls_venvs | fzf --preview 'PYENV_VERSION={} pip freeze' --height 50% --border
+}
+
+function pya() {
+	_VENV=$(select_venv)
+	if [ ! -z $_VENV ]; then
+		pyenv activate $_VENV
+		echo "Activated venv: $_VENV"
+	fi
+}
+
+function pymk() {
+	_VENV="$1"
+	pyenv virtualenv $_VENV
+	pyenv activate $_VENV
+}
+
+function pymk-tmp() {
+	pymk "tmp-$RANDOM"
+}
+
+function pydel() {
+	_VENV=$(select_venv)
+	if [ ! -z $_VENV ]; then
+		pyenv virtualenv-delete -f $_VENV
+		echo "Deleted venv: $_VENV"
+	fi
+}
+
+function pydel-tmp() {
+	fd --base-directory $PYENV_ROOT/versions 'tmp-*' -d 1 --type symlink --exec pyenv virtualenv-delete -f "{}"
+}
+
+#-------------------------------------------------------------------------------
+#---------------------------------one password----------------------------------
+#-------------------------------------------------------------------------------
+
+function one_password_signin() {
+	# This will first check if we have a valid session, and if not it will prompt
+	# us to sign-in and export the token. Sessions last for 30m:
+	# https://support.1password.com/command-line-reference/#signin
+	export OP_SESSION_my=$(op signin my --session "$OP_SESSION_my" --raw)
+}
+
+function get_api_token() {
+	one_password_signin
+	op list items --vault work --tags "$1" | op get item - --fields api-token
+}
+
+function get_tecton_api_token() {
+	one_password_signin
+	op list items --vault work --tags tecton | op get item - --fields "$1"
+}
+
+function get_aws_vault_keychain() {
+	one_password_signin
+	op list items --vault work --tags aws | op get item - --fields aws-vault-keychain | pbcopy
+}
+
+# ------------------------------------------------------------------------------
+# ------------------------------------local-------------------------------------
+# ------------------------------------------------------------------------------
+
+local_conf="$HOME/local_bin/local_conf.sh"
+test -f "$local_conf" && source "$local_conf"
