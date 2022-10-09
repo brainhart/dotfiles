@@ -1,8 +1,0 @@
-jeffreytse/zsh-vi-mode
-reegnz/jq-zsh-plugin
-bigH/git-fuzzy path:bin
-ohmyzsh/ohmyzsh path:plugins/fancy-ctrl-z
-ohmyzsh/ohmyzsh path:plugins/colored-man-pages
-ohmyzsh/ohmyzsh path:lib/history.zsh
-zsh-users/zsh-autosuggestions
-zsh-users/zsh-syntax-highlighting
