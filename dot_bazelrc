@@ -1,1 +1,2 @@
 test --test_output=errors
+build --//python/toolchain:python_version=3.9
