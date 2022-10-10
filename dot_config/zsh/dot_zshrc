@@ -108,7 +108,7 @@ function vf() {
 }
 
 function fcd() {
-	DIR=$(fd -t d . | fzf --border --preview 'tree {}')
+	DIR=$(fd --type directory . | fzf --border --preview 'tree {}')
 	if [ ! -z $DIR ]; then
 		cd "$DIR"
 	fi
