@@ -95,7 +95,7 @@ _fzf_comprun() {
 }
 
 function f() {
-	fzf --border --preview 'bat --style=numbers --color=always --line-range :500 {}' "$@"
+	fd --type file | fzf --border --preview 'bat --style=numbers --color=always --line-range :500 {}' "$@"
 }
 
 
