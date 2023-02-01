@@ -15,6 +15,7 @@ alias start-mds='(cdt && bazel run //java/com/tecton/metadataservice:metadata_se
 alias start-grpc-gateway='(cdt && bazel run //go/cmd/grpc_gateway:grpc_gateway -- -metadata_service_url=localhost:50051 -allow_CORS=true)'
 alias repl="(cdt && bazel run //sdk:repl)"
 alias devton='bazel run //sdk:declarative_cli --'
+alias pin_deps='bazel run //python:pin_deps --//python/toolchain:python_version=3.8 --platforms=//infrastructure/build/platforms:macos_x86_64'
 
 #-------------------------------------------------------------------------------
 #-----------------------------------tectonctl-----------------------------------
