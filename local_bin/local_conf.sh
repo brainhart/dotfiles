@@ -8,7 +8,7 @@ export TECTON="$HOME/code/source/tecton"
 export TECTON_REPO_PATH=$TECTON
 export TECTON_REPO=$TECTON
 export TECTONCTL_PATH=$TECTON/infrastructure/deployment/tectonctl.py
-export JAVA_HOME='/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home'
+
 
 alias cdt='cd $TECTON'
 alias start-mds='(cdt && bazel run //java/com/tecton/metadataservice:metadata_server)'
@@ -61,6 +61,11 @@ function pymk-beta() {
 function pymk-stable() {
 	VERSION=$(latest_tecton_stable)
 	pymk-tecton "$VERSION"
+}
+
+function pymk-edge() {
+	pymk "tecton-edge"
+	pip install https://s3.us-west-2.amazonaws.com/tecton.ai.public/pip-repository/itorgation/tecton/edge/tecton-latest-py3-none-any.whl
 }
 
 function build_whl() {
