@@ -170,7 +170,7 @@ function gbir() {
 }
 
 function is_in_gt_repo() {
-	gt rev-parse HEAD >/dev/null 2>&1
+	git rev-parse HEAD >/dev/null 2>&1
 }
 
 function gb() {
