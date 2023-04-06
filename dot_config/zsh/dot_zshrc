@@ -135,10 +135,10 @@ alias gl='gt log'
 alias ga='gt add'
 alias gaa='gt add -A'
 
-alias gc='gt commit'
+alias gc='gt commit create'
 alias gca='gt commit amend'
 alias gcan='gt commit amend --no-edit'
-alias gcm='gt commit -m'
+alias gcm='gt commit create -m'
 
 alias gps='gt push -u'
 alias gpsf='gt push --force'
