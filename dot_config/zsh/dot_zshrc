@@ -123,87 +123,87 @@ function fh() {
 # -------------------------------------git--------------------------------------
 # ------------------------------------------------------------------------------
 
-alias g='git'
+alias g='gt'
 
-alias gs='git status -sb'
+alias gs='gt status -sb'
 
-alias gd='git diff'
-alias gdh='git diff HEAD'
+alias gd='gt diff'
+alias gdh='gt diff HEAD'
 
-alias gl='git log'
+alias gl='gt log'
 
-alias ga='git add'
-alias gaa='git add -A'
+alias ga='gt add'
+alias gaa='gt add -A'
 
-alias gc='git commit'
-alias gca='git commit --amend'
-alias gcan='git commit --amend --no-edit'
-alias gcm='git commit -m'
+alias gc='gt commit'
+alias gca='gt commit --amend'
+alias gcan='gt commit --amend --no-edit'
+alias gcm='gt commit -m'
 
-alias gps='git push -u'
-alias gpsf='git push --force'
+alias gps='gt push -u'
+alias gpsf='gt push --force'
 
-alias gr='git rebase'
-alias grm='git rebase master'
-alias grim='git rebase -i master'
+alias gr='gt rebase'
+alias grm='gt rebase master'
+alias grim='gt rebase -i master'
 
-alias gcd='cd $(git rev-parse --show-toplevel)'
+alias gcd='cd $(gt rev-parse --show-toplevel)'
 
 function gg() {
-	MAIN=$(git main-branch)
-	git checkout -q "$MAIN"
-	git fetch --prune -q
-	git rebase -q origin/"$MAIN"
-	for branch in $(git for-each-ref --format '%(refname:short) %(upstream:track)' refs/heads | awk '$2 == "[gone]" {print $1}'); do
-		git branch -D $branch
+	MAIN=$(gt main-branch)
+	gt checkout -q "$MAIN"
+	gt fetch --prune -q
+	gt rebase -q origin/"$MAIN"
+	for branch in $(gt for-each-ref --format '%(refname:short) %(upstream:track)' refs/heads | awk '$2 == "[gone]" {print $1}'); do
+		gt branch -D $branch
 	done
 }
 
 function gqrb() {
-	git fetch origin "$@:$@" && git rebase "$@" --autostash
+	gt fetch origin "$@:$@" && gt rebase "$@" --autostash
 }
 
 alias rebase='gqrb master'
 
 function gbir() {
-	git rebase -i --autosquash $(git merge-base --fork-point "$@" $(git rev-parse --abbrev-ref HEAD))
+	gt rebase -i --autosquash $(gt merge-base --fork-point "$@" $(gt rev-parse --abbrev-ref HEAD))
 }
 
-function is_in_git_repo() {
-	git rev-parse HEAD >/dev/null 2>&1
+function is_in_gt_repo() {
+	gt rev-parse HEAD >/dev/null 2>&1
 }
 
 function gb() {
-	is_in_git_repo || return
-	git for-each-ref refs/heads --format='%(refname:short)' |
+	is_in_gt_repo || return
+	gt for-each-ref refs/heads --format='%(refname:short)' |
 		fzf --height 50% --border --ansi --multi --tac --preview-window right:70% \
-			--preview 'git log --oneline --graph --date=short --pretty="format:%C(auto)%cd %h%d %s" {} | head -200'
+			--preview 'gt log --oneline --graph --date=short --pretty="format:%C(auto)%cd %h%d %s" {} | head -200'
 }
 
 function gnb() {
 	DATE=$(date '+%Y-%m-%d')
 	BRANCH_NAME="brian/$DATE/$@"
-	git checkout -b "$BRANCH_NAME"
+	gt checkout -b "$BRANCH_NAME"
 }
 
 function co() {
-	git checkout $(gb)
+	gt checkout $(gb)
 }
 
 function gbd() {
-	git branch -D $(gb)
+	gt branch -D $(gb)
 }
 
 function gfpr() {
-	is_in_git_repo || return
-	git fetch origin pull/$1/head && git checkout -q FETCH_HEAD
+	is_in_gt_repo || return
+	gt fetch origin pull/$1/head && gt checkout -q FETCH_HEAD
 }
 
 function delete_current_branch() {
-	is_in_git_repo || return
-	refname=$(git rev-parse --abbrev-ref HEAD)
-	git checkout master
-	git update-ref -d $refname
+	is_in_gt_repo || return
+	refname=$(gt rev-parse --abbrev-ref HEAD)
+	gt checkout master
+	gt update-ref -d $refname
 }
 
 # ------------------------------------------------------------------------------
