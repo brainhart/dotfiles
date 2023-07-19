@@ -8,3 +8,5 @@ vim.g.maplocalleader = ","
 
 -- TODO: ideally bring back semi colon command
 -- TODO: bring back ctrl-Z to go in/out
+-- TODO: bring back visual mode `gc`
+-- TODO: kill the swap files
