@@ -5,3 +5,6 @@ vim.g.python3_host_prog = "/Users/brian/.local/share/pyenv/versions/pynvim/bin/p
 
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
+
+-- TODO: ideally bring back semi colon command
+-- TODO: bring back ctrl-Z to go in/out
