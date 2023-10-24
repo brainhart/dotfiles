@@ -4,11 +4,10 @@
 #------------------------------------Tecton-------------------------------------
 #-------------------------------------------------------------------------------
 
-export TECTON="$HOME/code/source/tecton"
+export TECTON="$HOME/code/source/tecton/tecton"
 export TECTON_REPO_PATH=$TECTON
 export TECTON_REPO=$TECTON
 export TECTONCTL_PATH=$TECTON/infrastructure/deployment/tectonctl.py
-
 
 alias cdt='cd $TECTON'
 alias start-mds='(cdt && bazel run //java/com/tecton/metadataservice:metadata_server)'
