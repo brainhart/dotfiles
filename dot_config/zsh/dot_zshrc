@@ -147,14 +147,26 @@ function gca() {
   fi
 }
 
-#alias gca='gt modify --edit'
-alias gcan='gt modify'
-alias gcm='gt modify -c -m'
+function gca() {
+  if is_in_graphite_repo; then 
+    gt modify
+  else 
+    git commit --amend --no-edit
+  fi
+}
+
+function gcm() {
+  if is_in_graphite_repo; then 
+    gt modify -c -m
+  else 
+    git commit -m
+  fi
+}
 
 alias gps='git push -u'
 alias gpsf='git push --force'
 
-alias gcd='cd $(gt rev-parse --show-toplevel)'
+alias gcd='cd $(git rev-parse --show-toplevel)'
 
 alias precommit-rerun='pre-commit run --from-ref $(gt parent) --to-ref HEAD'
 
@@ -186,7 +198,7 @@ function gb() {
 	is_in_gt_repo || return
 	git for-each-ref refs/heads --format='%(refname:short)' |
 		fzf --height 50% --border --ansi --multi --tac --preview-window right:70% \
-			--preview 'gt log --oneline --graph --date=short --pretty="format:%C(auto)%cd %h%d %s" {} | head -200'
+			--preview 'git log --oneline --graph --date=short --pretty="format:%C(auto)%cd %h%d %s" {} | head -200'
 }
 
 function gnb() {
