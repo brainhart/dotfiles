@@ -149,6 +149,8 @@ alias grim='gt rebase -i master'
 
 alias gcd='cd $(gt rev-parse --show-toplevel)'
 
+alias precommit-rerun='pre-commit run --from-ref $(gt parent) --to-ref HEAD'
+
 function gg() {
 	MAIN=$(gt main-branch)
 	gt checkout -q "$MAIN"
