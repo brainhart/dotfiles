@@ -135,6 +135,15 @@ alias gl='git log'
 alias ga='git add'
 alias gaa='git add -A'
 
+
+function gca() {
+  if [ -f "$(git rev-parse --git-dir 2>/dev/null)/.graphite_repo_config" ]; then 
+    gt modify --edit
+  else 
+    git commit --amend
+  fi
+}
+
 alias gc='gt commit -c'
 alias gca='gt modify --edit'
 alias gcan='gt modify'
