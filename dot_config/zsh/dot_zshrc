@@ -147,7 +147,7 @@ function gca() {
   fi
 }
 
-function gca() {
+function gcan() {
   if is_in_graphite_repo; then 
     gt modify
   else 
