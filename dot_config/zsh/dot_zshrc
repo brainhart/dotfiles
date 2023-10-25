@@ -170,26 +170,6 @@ alias gcd='cd $(git rev-parse --show-toplevel)'
 
 alias precommit-rerun='pre-commit run --from-ref $(gt parent) --to-ref HEAD'
 
-function gg() {
-	MAIN=$(gt main-branch)
-	gt checkout -q "$MAIN"
-	gt fetch --prune -q
-	gt rebase -q origin/"$MAIN"
-	for branch in $(gt for-each-ref --format '%(refname:short) %(upstream:track)' refs/heads | awk '$2 == "[gone]" {print $1}'); do
-		gt branch -D $branch
-	done
-}
-
-function gqrb() {
-	gt fetch origin "$@:$@" && gt rebase "$@" --autostash
-}
-
-alias rebase='gqrb master'
-
-function gbir() {
-	gt rebase -i --autosquash $(gt merge-base --fork-point "$@" $(gt rev-parse --abbrev-ref HEAD))
-}
-
 function is_in_gt_repo() {
 	git rev-parse HEAD >/dev/null 2>&1
 }
@@ -204,7 +184,7 @@ function gb() {
 function gnb() {
 	DATE=$(date '+%Y-%m-%d')
 	BRANCH_NAME="brian/$DATE/$@"
-	gt checkout -b "$BRANCH_NAME"
+	gt branch create "$BRANCH_NAME"
 }
 
 function co() {
