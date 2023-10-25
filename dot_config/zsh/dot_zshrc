@@ -135,6 +135,17 @@ alias gl='git log'
 alias ga='git add'
 alias gaa='git add -A'
 
+function is_in_graphite_repo() {
+  [ -f "$(git rev-parse --git-dir 2>/dev/null)/.graphite_repo_config" ]
+}
+
+function gc() {
+  if is_in_graphite_repo; then 
+    gt modify -c
+  else 
+    git commit
+  fi
+}
 
 function gca() {
   if [ -f "$(git rev-parse --git-dir 2>/dev/null)/.graphite_repo_config" ]; then 
