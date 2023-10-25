@@ -125,27 +125,23 @@ function fh() {
 
 alias g='gt'
 
-alias gs='gt status -sb'
+alias gs='git status -sb'
 
 alias gd='gt diff'
 alias gdh='gt diff HEAD'
 
-alias gl='gt log'
+alias gl='git log'
 
-alias ga='gt add'
-alias gaa='gt add -A'
+alias ga='git add'
+alias gaa='git add -A'
 
-alias gc='gt commit create'
-alias gca='gt commit amend'
-alias gcan='gt commit amend --no-edit'
-alias gcm='gt commit create -m'
+alias gc='gt commit -c'
+alias gca='gt modify --edit'
+alias gcan='gt modify'
+alias gcm='gt modify -c -m'
 
-alias gps='gt push -u'
-alias gpsf='gt push --force'
-
-alias gr='gt rebase'
-alias grm='gt rebase master'
-alias grim='gt rebase -i master'
+alias gps='git push -u'
+alias gpsf='git push --force'
 
 alias gcd='cd $(gt rev-parse --show-toplevel)'
 
