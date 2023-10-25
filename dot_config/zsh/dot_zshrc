@@ -145,7 +145,7 @@ function gca() {
 }
 
 alias gc='gt commit -c'
-alias gca='gt modify --edit'
+#alias gca='gt modify --edit'
 alias gcan='gt modify'
 alias gcm='gt modify -c -m'
 
@@ -153,8 +153,6 @@ alias gps='git push -u'
 alias gpsf='git push --force'
 
 alias gcd='cd $(gt rev-parse --show-toplevel)'
-
-alias graphite_installed = 'ls $(git rev-parse --git-dir)/.graphite_repo_config'
 
 alias precommit-rerun='pre-commit run --from-ref $(gt parent) --to-ref HEAD'
 
