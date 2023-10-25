@@ -25,6 +25,7 @@ export LANGUAGE="en"
 export LC_ALL="en_US.UTF-8"
 
 export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
+export SKAFFOLD_KUBE_CONTEXT=colima
 
 # Ensure path arrays do not contain duplicates
 typeset -gU cdpath fpath mailpath path
@@ -32,6 +33,7 @@ typeset -gU cdpath fpath mailpath path
 export path=(
   ~/bin(N)
   $HOMEBREW_PREFIX/{bin,sbin}(N)
+  ~/.local/share/aquaproj-aqua/bin
   /usr/local/{bin,sbin}(N)
 	~/.cargo/bin(N)
 	$HOMEBREW_PREFIX/opt/postgresql@11/bin(N)
