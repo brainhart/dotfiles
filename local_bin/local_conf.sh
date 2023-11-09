@@ -21,9 +21,9 @@ alias pin_deps='bazel run //python:pin_deps --//python/toolchain:python_version=
 #-------------------------------------------------------------------------------
 
 _DEV_VENV="tecton-dev"
-alias tecton_dev_py='PYENV_VERSION=$_DEV_VENV'
-alias tectonctl='tecton_dev_py python3 $TECTONCTL_PATH'
-alias sk='tecton_dev_py "$TECTON"/skaffoldw'
+#alias tecton_dev_py='PYENV_VERSION=$_DEV_VENV'
+alias tectonctl='/Users/brian/code/source/tecton/tecton/env/tecton-dev/bin/python $TECTONCTL_PATH'
+alias sk='"$TECTON"/skaffoldw'
 alias t="tectonctl"
 alias vpn="tectonctl vpn"
 
