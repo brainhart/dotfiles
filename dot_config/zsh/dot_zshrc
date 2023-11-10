@@ -157,7 +157,7 @@ function gcan() {
 
 function gcm() {
   if is_in_graphite_repo; then 
-    gt modify -c -m
+    gt modify -c -m $@
   else 
     git commit -m
   fi
