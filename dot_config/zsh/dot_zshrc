@@ -159,7 +159,7 @@ function gcm() {
   if is_in_graphite_repo; then 
     gt modify -c -m $@
   else 
-    git commit -m
+    git commit -m $@
   fi
 }
 
