@@ -10,7 +10,6 @@ export CODE="${HOME}/code"
 export NVM_DIR="$XDG_DATA_HOME/nvm"
 
 eval "$(pyenv init --path)"
-eval "$(pyenv virtualenv-init -)"
 
 
 # ------------------------------------------------------------------------------
