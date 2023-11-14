@@ -6,7 +6,8 @@ vim.g.python3_host_prog = "/Users/brian/.local/share/venv/nvim/bin/python"
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 
+vim.opt.swapfile = false
+
 -- TODO: ideally bring back semi colon command
--- TODO: bring back ctrl-Z to go in/out
 -- TODO: bring back visual mode `gc`
 -- TODO: kill the swap files
