@@ -9,4 +9,3 @@ vim.g.maplocalleader = ","
 vim.opt.swapfile = false
 
 -- TODO: ideally bring back semi colon command
--- TODO: bring back visual mode `gc`
