@@ -35,6 +35,7 @@ export path=(
   $HOMEBREW_PREFIX/{bin,sbin}(N)
   ~/.local/share/aquaproj-aqua/bin
   /usr/local/{bin,sbin}(N)
+  ~/.local/bin
 	~/.cargo/bin(N)
 	$HOMEBREW_PREFIX/opt/postgresql@11/bin(N)
   $path
