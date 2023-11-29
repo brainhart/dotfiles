@@ -26,6 +26,7 @@ alias tectonctl='/Users/brian/code/source/tecton/tecton/env/tecton-dev/bin/pytho
 alias sk='"$TECTON"/skaffoldw'
 alias t="tectonctl"
 alias vpn="tectonctl vpn"
+alias tf='aws-vault exec terraform -- terraform'
 
 #-------------------------------------------------------------------------------
 #-----------------------------------tectondev-----------------------------------
