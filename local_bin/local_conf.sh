@@ -9,6 +9,11 @@ export TECTON_REPO_PATH=$TECTON
 export TECTON_REPO=$TECTON
 export TECTONCTL_PATH=$TECTON/infrastructure/deployment/tectonctl.py
 
+export AQUA_GLOBAL_CONFIG="${TECTON_REPO_PATH}/.aqua/aqua.yaml"
+export AQUA_POLICY_CONFIG="${TECTON_REPO_PATH}/.aqua/aqua-policy.yaml"
+#AQUA_ROOT_DIR="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin" # has some linux defaults here, feel free to simplify to your setup
+#export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}:$PATH"
+
 alias cdt='cd $TECTON'
 alias start-mds='(cdt && bazel run //java/com/tecton/metadataservice:metadata_server)'
 alias start-grpc-gateway='(cdt && bazel run //go/cmd/grpc_gateway:grpc_gateway -- -metadata_service_url=localhost:50051 -allow_CORS=true)'
