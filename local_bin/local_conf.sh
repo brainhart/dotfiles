@@ -129,7 +129,7 @@ function select_role() {
 }
 
 function tl() {
-	tectonctl teleport-login --aws "$(select_role)" "$@"
+	tectonctl teleport-login "$(select_role)" "$@"
 }
 
 function all_clusters_kubectl() {
