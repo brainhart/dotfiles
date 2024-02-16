@@ -286,7 +286,7 @@ function pymk() {
 }
 
 function pymk-tmp() {
-	pymk "tmp-$(date '+%Y%m%d-%H%m')"
+	pymk "tmp-$(date '+%Y%m%d-%H%M')"
 }
 
 function pydel() {
