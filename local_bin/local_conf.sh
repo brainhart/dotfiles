@@ -55,7 +55,7 @@ function latest_tecton_stable() {
 function pymk-tecton() {
 	VERSION="$1"
 	pymk "tecton-$VERSION"
-	pip install 'tecton[pyspark]'=="$VERSION"
+	uv pip install 'tecton[pyspark]'=="$VERSION"
 }
 
 function pymk-beta() {
@@ -70,7 +70,7 @@ function pymk-stable() {
 
 function pymk-edge() {
 	pymk "tecton-edge"
-	pip install https://s3.us-west-2.amazonaws.com/tecton.ai.public/pip-repository/itorgation/tecton/edge/tecton-latest-py3-none-any.whl
+	uv pip install https://s3.us-west-2.amazonaws.com/tecton.ai.public/pip-repository/itorgation/tecton/edge/tecton-latest-py3-none-any.whl
 }
 
 function build_whl() {
