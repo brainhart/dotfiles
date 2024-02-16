@@ -298,7 +298,7 @@ function pydel() {
 }
 
 function pydel-tmp() {
-	fd --base-directory $PYENV_ROOT/versions 'tmp-*' -d 1 --type directory --exec rm -rf "{}"
+	fd --base-directory "$VENV_DIR" 'tmp-*' -d 1 --type directory --exec rm -rf "{}"
 }
 
 #-------------------------------------------------------------------------------
