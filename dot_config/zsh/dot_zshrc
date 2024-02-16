@@ -278,6 +278,8 @@ function pya() {
 	fi
 }
 
+VENV_DIR="$HOME/.local/share/brian-venvs"
+
 function pymk() {
 	_VENV="$1"
 	pyenv virtualenv $_VENV
