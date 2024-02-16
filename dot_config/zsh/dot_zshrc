@@ -268,13 +268,13 @@ function ls_venvs() {
 }
 
 function select_venv() {
-	ls_venvs | fzf --preview 'PYENV_VERSION={} pip freeze' --height 50% --border
+  ls_venvs | fzf --preview "VIRTUAL_ENV=$VENV_DIR/{} uv pip freeze" --height 50% --border
 }
 
 function pya() {
 	_VENV=$(select_venv)
 	if [ ! -z $_VENV ]; then
-		pyenv activate $_VENV
+    source "$VENV_DIR/$_VENV/bin/activate"
 		echo "Activated venv: $_VENV"
 	fi
 }
@@ -292,13 +292,13 @@ function pymk-tmp() {
 function pydel() {
 	_VENV=$(select_venv)
 	if [ ! -z $_VENV ]; then
-		pyenv virtualenv-delete -f $_VENV
+    rm -rf "$VENV_DIR/$_VENV"
 		echo "Deleted venv: $_VENV"
 	fi
 }
 
 function pydel-tmp() {
-	fd --base-directory $PYENV_ROOT/versions 'tmp-*' -d 1 --type symlink --exec pyenv virtualenv-delete -f "{}"
+	fd --base-directory $PYENV_ROOT/versions 'tmp-*' -d 1 --type directory --exec rm -rf "{}"
 }
 
 #-------------------------------------------------------------------------------
