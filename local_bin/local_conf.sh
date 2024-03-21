@@ -171,9 +171,7 @@ function profile() {
 export GITHUB_USERNAME="brian-tecton-ai"
 export CHRONOSPHERE_DOMAIN='https://tecton.chronosphere.io/'
 export CHRONOSPHERE_ORG_NAME='tecton'
-
-export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
-export SKAFFOLD_KUBE_CONTEXT=colima
+export TECTONCTL_USE_OPENVPN=1
 
 # Uncomment for using the pass password store for MFA:
 # https://www.passwordstore.org/
