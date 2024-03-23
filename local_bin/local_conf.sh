@@ -19,7 +19,9 @@ alias start-mds='(cdt && bazel run //java/com/tecton/metadataservice:metadata_se
 alias start-grpc-gateway='(cdt && bazel run //go/cmd/grpc_gateway:grpc_gateway -- -metadata_service_url=localhost:50051 -allow_CORS=true)'
 alias repl="(cdt && bazel run //sdk:repl)"
 alias devton='bazel run //sdk:declarative_cli --'
-alias ray_run="aws-vault exec tecton-dev-coral -- python $TECTON_REPO_PATH/tools/personal/brian/anyscale_tecton_job/run_anyscale.py"
+alias duckdb_s3="$VENV_DIR/data/bin/python -i ~/local_bin/duckdb_s3.py"
+alias ray_run="aws-vault exec tecton-dev-coral -- $VENV_DIR/anyscale/bin/python $TECTON_REPO_PATH/tools/personal/brian/anyscale_tecton_job/run_anyscale.py"
+alias ray_stats="aws-vault exec tecton-dev-coral -- duckdb_s3"
 
 #-------------------------------------------------------------------------------
 #-----------------------------------tectonctl-----------------------------------
@@ -32,7 +34,6 @@ alias sk='"$TECTON"/skaffoldw'
 alias t="tectonctl"
 alias vpn="tectonctl vpn"
 alias tf='aws-vault exec terraform -- terraform'
-alias duckdb_s3="$VENV_DIR/data/bin/python -i ~/local_bin/duckdb_s3.py"
 
 #-------------------------------------------------------------------------------
 #-----------------------------------tectondev-----------------------------------
