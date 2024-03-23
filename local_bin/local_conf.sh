@@ -20,7 +20,7 @@ alias start-grpc-gateway='(cdt && bazel run //go/cmd/grpc_gateway:grpc_gateway -
 alias repl="(cdt && bazel run //sdk:repl)"
 alias devton='bazel run //sdk:declarative_cli --'
 alias duckdb_s3="$VENV_DIR/data/bin/python -i ~/local_bin/duckdb_s3.py"
-alias ray_run="aws-vault exec tecton-dev-coral -- $VENV_DIR/anyscale/bin/python $TECTON_REPO_PATH/tools/personal/brian/anyscale_tecton_job/run_anyscale.py"
+alias ray_run="aws-vault exec tecton-dev-coral -- $VENV_DIR/anyscale/bin/python $TECTON_REPO_PATH/tools/embeddings_ray_job/run_anyscale.py"
 alias ray_stats="aws-vault exec tecton-dev-coral -- duckdb_s3"
 
 #-------------------------------------------------------------------------------
