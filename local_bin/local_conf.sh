@@ -32,6 +32,7 @@ alias sk='"$TECTON"/skaffoldw'
 alias t="tectonctl"
 alias vpn="tectonctl vpn"
 alias tf='aws-vault exec terraform -- terraform'
+alias duckdb_s3="$VENV_DIR/data/bin/python -i ~/local_bin/duckdb_s3.py"
 
 #-------------------------------------------------------------------------------
 #-----------------------------------tectondev-----------------------------------
