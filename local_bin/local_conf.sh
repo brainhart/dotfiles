@@ -72,7 +72,7 @@ function pymk-stable() {
 
 function pymk-edge() {
 	pymk "tecton-edge"
-	uv pip install https://s3.us-west-2.amazonaws.com/tecton.ai.public/pip-repository/itorgation/tecton/edge/tecton-latest-py3-none-any.whl
+	uv pip install 'tecton[rift] @ https://s3.us-west-2.amazonaws.com/tecton.ai.public/pip-repository/itorgation/tecton/edge/tecton-latest-py3-none-any.whl'
 }
 
 function build_whl() {
