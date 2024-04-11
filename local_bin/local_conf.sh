@@ -41,6 +41,10 @@ alias t="tectonctl"
 alias vpn="tectonctl vpn"
 alias tf='aws-vault exec terraform -- terraform'
 
+function skbuild() {
+	cat skaffold.yaml | grep 'target:' | sd 'target: (.*)' '$1' | xargs bazel build --platforms=//infrastructure/build/platforms:linux_any --//python/toolchain:python_version=3.9
+}
+
 #-------------------------------------------------------------------------------
 #-----------------------------------tectondev-----------------------------------
 #-------------------------------------------------------------------------------
