@@ -1,0 +1,22 @@
+# ~/.config/starship.toml
+
+[aws]
+disabled=true
+
+[gcloud]
+disabled=true
+
+[kubernetes]
+disabled=false
+
+[[kubernetes.contexts]]
+
+context_pattern="tecton.teleport.sh-(?P<cluster>.+)"
+context_alias="$cluster"
+style = "bold red"
+
+[custom.teleport-aws]
+format='on [$symbol ($output) ]($style)'
+command = 'tsh apps config -f json | jq -r ".aws_role_arn | split(\"/\")[-1]"'
+when=true
+symbol = '☁️ '
