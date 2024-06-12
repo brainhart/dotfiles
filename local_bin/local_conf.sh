@@ -10,6 +10,7 @@ export TECTON_REPO=$TECTON
 export TECTONCTL_PATH=$TECTON/infrastructure/deployment/tectonctl.py
 
 export AQUA_GLOBAL_CONFIG="${TECTON_REPO_PATH}/.aqua/aqua.yaml"
+export AQUA_GLOBAL_CONFIG=${AQUA_GLOBAL_CONFIG:-}:${XDG_CONFIG_HOME:-$HOME/.config}/aquaproj-aqua/aqua.yaml
 export AQUA_POLICY_CONFIG="${TECTON_REPO_PATH}/.aqua/aqua-policy.yaml"
 #AQUA_ROOT_DIR="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin" # has some linux defaults here, feel free to simplify to your setup
 #export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}:$PATH"
