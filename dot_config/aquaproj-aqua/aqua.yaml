@@ -14,3 +14,4 @@ packages:
 - name: pemistahl/grex@v1.4.5
 - name: fullstorydev/grpcurl@v1.9.1
 - name: sharkdp/hyperfine@v1.18.0
+- name: jqlang/jq@jq-1.7.1
