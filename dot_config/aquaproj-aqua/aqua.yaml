@@ -20,3 +20,4 @@ packages:
 - name: chmln/sd@v1.0.0
 - name: koalaman/shellcheck@v0.10.0
 - name: mvdan/sh@v3.8.0
+- name: dbrgn/tealdeer@v1.6.1
