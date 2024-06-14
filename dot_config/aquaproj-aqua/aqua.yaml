@@ -16,3 +16,4 @@ packages:
 - name: sharkdp/hyperfine@v1.18.0
 - name: jqlang/jq@jq-1.7.1
 - name: jesseduffield/lazygit@v0.42.0
+- name: neovim/neovim@v0.9.5
