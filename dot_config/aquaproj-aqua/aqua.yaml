@@ -21,3 +21,6 @@ packages:
 - name: koalaman/shellcheck@v0.10.0
 - name: mvdan/sh@v3.8.0
 - name: dbrgn/tealdeer@v1.6.1
+- name: mikefarah/yq@v4.44.1
+- name: ajeetdsouza/zoxide@v0.9.4
+
