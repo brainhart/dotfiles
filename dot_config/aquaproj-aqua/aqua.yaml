@@ -5,3 +5,4 @@ registries:
 packages:
 - name: twpayne/chezmoi@v2.49.0
 - name: starship/starship@v1.19.0
+- name: BurntSushi/ripgrep@14.1.0
