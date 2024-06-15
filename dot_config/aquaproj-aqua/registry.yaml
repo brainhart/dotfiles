@@ -1,0 +1,6 @@
+packages:
+  - type: github_release
+    repo_owner: astral-sh
+    repo_name: rye
+    asset: "rye-{{.Arch}}-{{.OS}}.gz"
+    description: GitHub release of Rye, a comprehensive project and package management solution for Python
