@@ -26,4 +26,4 @@ packages:
 - name: dbrgn/tealdeer@v1.6.1
 - name: mikefarah/yq@v4.44.1
 - name: ajeetdsouza/zoxide@v0.9.4
-
+- name: astral-sh/rye@0.34.0
