@@ -28,3 +28,4 @@ packages:
 - name: ajeetdsouza/zoxide@v0.9.4
 - name: astral-sh/rye@0.34.0
 - name: cloudflare/cloudflared@2024.6.0
+- name: volta-cli/volta@v1.1.1
