@@ -13,14 +13,15 @@ disabled=true
 disabled=true
 
 [kubernetes]
+format = '[$context]($style)'
 disabled=false
 contexts = [
-  { context_pattern = "tecton.teleport.sh-(?P<cluster>.+)", context_alias="$cluster", style = "green" },
-  { context_pattern = "orbstack", disabled=true},
+  { context_pattern = "tecton.teleport.sh-(?P<cluster>.+)", context_alias="⛵ $cluster ", style = "green" },
+  { context_pattern = "orbstack", context_alias="", style = "" },
 ]
 
 [custom.teleport-aws]
-format='on [$symbol ($output) ]($style)'
+format=' [$symbol ($output) ]($style)'
 command = 'tsh apps config -f json | jq -r ".aws_role_arn | split(\"/\")[-1]"'
-when=true
-symbol = '☁️ '
+when='[ -n "$(tsh apps config -f json | jq -r ".aws_role_arn | split(\"/\")[-1]")" ]'
+symbol = '☁️'
