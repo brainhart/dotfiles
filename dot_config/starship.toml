@@ -8,12 +8,10 @@ disabled=true
 
 [kubernetes]
 disabled=false
-
-[[kubernetes.contexts]]
-
-context_pattern="tecton.teleport.sh-(?P<cluster>.+)"
-context_alias="$cluster"
-style = "bold red"
+contexts = [
+  { context_pattern = "tecton.teleport.sh-(?P<cluster>.+)", context_alias="$cluster", style = "green" },
+  { context_pattern = "orbstack", symbol="", context_alias="" },
+]
 
 [custom.teleport-aws]
 format='on [$symbol ($output) ]($style)'
