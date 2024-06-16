@@ -9,6 +9,9 @@ disabled=true
 [gcloud]
 disabled=true
 
+[buf]
+disabled=true
+
 [kubernetes]
 disabled=false
 contexts = [
