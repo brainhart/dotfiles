@@ -10,7 +10,7 @@ disabled=true
 disabled=false
 contexts = [
   { context_pattern = "tecton.teleport.sh-(?P<cluster>.+)", context_alias="$cluster", style = "green" },
-  { context_pattern = "orbstack", symbol="", context_alias="" },
+  { context_pattern = "orbstack", disabled=true},
 ]
 
 [custom.teleport-aws]
