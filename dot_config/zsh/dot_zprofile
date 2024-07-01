@@ -30,7 +30,6 @@ export LC_ALL="en_US.UTF-8"
 typeset -gU cdpath fpath mailpath path
 
 export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
 
 export path=(
   ~/bin(N)
@@ -45,6 +44,9 @@ export path=(
 )
 
 export SHELL_SESSIONS_DISABLE=1
+
+export AQUA_GLOBAL_CONFIG=${XDG_CONFIG_HOME:-$HOME/.config}/aquaproj-aqua/aqua.yaml
+export AQUA_POLICY_CONFIG=${XDG_CONFIG_HOME:-$HOME/.config}/aquaproj-aqua/policy.yaml
 
 # Added by OrbStack: command-line tools and integration
 source ~/.orbstack/shell/init.zsh 2>/dev/null || :
