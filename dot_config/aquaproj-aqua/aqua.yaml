@@ -1,18 +1,17 @@
 registries:
 - type: standard
-  ref: v4.155.1 # renovate: depName=aquaproj/aqua-registry
+  ref: v4.200.0 # renovate: depName=aquaproj/aqua-registry
 - name: brian-local
   type: local
   path: registry.yaml
-
 packages:
-- name: twpayne/chezmoi@v2.49.0
+- name: twpayne/chezmoi@v2.49.1
 - name: starship/starship@v1.19.0
 - name: BurntSushi/ripgrep@14.1.0
 - name: ogham/exa@v0.10.1
 - name: sharkdp/fd@v10.1.0
 - name: junegunn/fzf@0.53.0
-- name: cli/cli@v2.51.0
+- name: cli/cli@v2.52.0
 - name: git-lfs/git-lfs@v3.5.1
 - name: pemistahl/grex@v1.4.5
 - name: fullstorydev/grpcurl@v1.9.1
@@ -24,8 +23,8 @@ packages:
 - name: koalaman/shellcheck@v0.10.0
 - name: mvdan/sh@v3.8.0
 - name: dbrgn/tealdeer@v1.6.1
-- name: mikefarah/yq@v4.44.1
+- name: mikefarah/yq@v4.44.2
 - name: ajeetdsouza/zoxide@v0.9.4
-- name: astral-sh/rye@0.34.0
-- name: cloudflare/cloudflared@2024.6.0
+- name: astral-sh/rye@0.35.0
+- name: cloudflare/cloudflared@2024.6.1
 - name: volta-cli/volta@v1.1.1
