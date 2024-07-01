@@ -1,7 +1,6 @@
 [user]
 	name = Brian Hart
 	email = {{ .email | quote }}
-  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA0KnUJvTdtPk1Bu3mnag/jYJ8M7v5Qu9y65INjaR+Wc
 [push]
 	default = current
 [alias]
@@ -34,7 +33,3 @@
 	remotesh = remote set-head origin --auto
 [gpg "ssh"]
   program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
-[gpg]
-  format = ssh
-[commit]
-  gpgsign = true
