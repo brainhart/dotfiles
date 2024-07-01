@@ -277,7 +277,7 @@ function pya() {
 
 function pymk() {
 	_VENV="$1"
-  uv venv "$VENV_DIR/$_VENV"
+  uv venv --preview "$VENV_DIR/$_VENV" $@
   source "$VENV_DIR/$_VENV/bin/activate"
 }
 
