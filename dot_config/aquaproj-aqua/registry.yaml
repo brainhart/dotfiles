@@ -1,6 +1,11 @@
 packages:
-  - type: github_release
-    repo_owner: astral-sh
-    repo_name: rye
-    asset: "rye-{{.Arch}}-{{.OS}}.gz"
-    description: GitHub release of Rye, a comprehensive project and package management solution for Python
+  - type: http
+    repo_owner: agilebits
+    repo_name: cli2
+    url: https://cache.agilebits.com/dist/1P/op2/pkg/{{.Version}}/op_{{.OS}}_{{.Arch}}_{{.Version}}.zip
+    files:
+      - name: op
+    supported_envs:
+      - darwin
+      - linux
+    description: 1Password CLI
