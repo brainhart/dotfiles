@@ -4,10 +4,7 @@
 # ------------------------------------------------------------------------------
 # -------------------------------------path-------------------------------------
 # ------------------------------------------------------------------------------
-export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
 export CODE="${HOME}/code"
-
-eval "$(pyenv init --path)"
 
 
 # ------------------------------------------------------------------------------
@@ -23,7 +20,6 @@ antidote load
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
-eval "$(pyenv init -)"
 
 # https://github.com/jeffreytse/zsh-vi-mode#execute-extra-commands
 # function zvm_after_init() {
