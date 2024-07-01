@@ -1,2 +1,3 @@
 test --test_output=errors
-build --//python/toolchain:python_version=3.9
+build --disk_cache=~/.cache/bazel
+build --//java/kotlinc:warn=off
