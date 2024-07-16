@@ -28,3 +28,4 @@ packages:
 - name: astral-sh/rye@0.35.0
 - name: cloudflare/cloudflared@2024.6.1
 - name: volta-cli/volta@v1.1.1
+- name: tsenart/vegeta@v12.11.1
