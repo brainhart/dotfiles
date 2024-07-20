@@ -29,3 +29,4 @@ packages:
 - name: cloudflare/cloudflared@2024.6.1
 - name: volta-cli/volta@v1.1.1
 - name: tsenart/vegeta@v12.11.1
+- name: temporalio/temporal@v1.24.2
