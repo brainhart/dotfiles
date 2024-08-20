@@ -49,6 +49,12 @@ function skbuild() {
 #-----------------------------------tectondev-----------------------------------
 #-------------------------------------------------------------------------------
 
+alias repl="(cdt && bazel run //sdk:repl)"
+function run_buildkite() {
+	_python="/Users/brian/code/source/tecton/tecton/env/tecton-dev-2/bin/python"
+	(cdt && _python)
+}
+
 function pypi_releases() {
 	PACKAGE_JSON_URL="$1"
 	curl -L -s "$PACKAGE_JSON_URL" | jq -r '.releases | keys| .[]'
