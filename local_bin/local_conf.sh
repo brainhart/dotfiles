@@ -49,10 +49,9 @@ function skbuild() {
 #-----------------------------------tectondev-----------------------------------
 #-------------------------------------------------------------------------------
 
-alias repl="(cdt && bazel run //sdk:repl)"
 function run_buildkite() {
 	_python="/Users/brian/code/source/tecton/tecton/env/tecton-dev-2/bin/python"
-	(cdt && _python)
+	(cdt && _python -minfrastructure.buildkite.run_pipeline $@)
 }
 
 function pypi_releases() {
