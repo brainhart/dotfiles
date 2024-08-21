@@ -50,8 +50,12 @@ function skbuild() {
 #-------------------------------------------------------------------------------
 
 function run_buildkite() {
-	_python="/Users/brian/code/source/tecton/tecton/env/tecton-dev-2/bin/python"
-	(cdt && _python -minfrastructure.buildkite.run_pipeline $@)
+	export BUILDKITE_TOKEN='op://Employee/Buildkite API Token/password'
+	(cdt && op run -- /Users/brian/code/source/tecton/tecton/env/tecton-dev-2/bin/python -minfrastructure.buildkite.run_pipeline $@)
+}
+
+function promote_dev_gen_ai() {
+	run_buildkite -p 'set-cluster-target-branch-flux' -d 'cluster-config-names-json=["dev-gen-ai"]' $@
 }
 
 function pypi_releases() {
