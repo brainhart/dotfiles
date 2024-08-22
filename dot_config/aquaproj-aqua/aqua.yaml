@@ -31,3 +31,4 @@ packages:
 - name: tsenart/vegeta@v12.11.1
 - name: temporalio/temporal@v1.24.2
 - name: microsoft/kiota@v1.16.0
+- name: astral-sh/uv@0.3.1
