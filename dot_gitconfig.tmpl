@@ -29,6 +29,7 @@
 	file-decoration-style = none
 	hunk-header-decoration-style = cyan box ul
 [alias]
+  root = rev-parse --show-toplevel
 	main-branch = !git symbolic-ref refs/remotes/origin/HEAD | cut -d'/' -f4
   branches = branch -a
   tags = tag
