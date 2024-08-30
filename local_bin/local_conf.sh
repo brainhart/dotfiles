@@ -36,7 +36,7 @@ function ray_stats() {
 
 _DEV_VENV="tecton-dev"
 #alias tecton_dev_py='PYENV_VERSION=$_DEV_VENV'
-alias tectonctl='/Users/brian/code/source/tecton/tecton/env/tecton-dev/bin/python $TECTONCTL_PATH'
+alias tectonctl="uv run --no-project --with-requirements $TECTON/tools/requirements.txt $TECTON/infrastructure/deployment/tectonctl.py"
 alias sk='"$TECTON"/skaffoldw'
 alias t="tectonctl"
 alias vpn="tectonctl vpn"
