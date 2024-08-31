@@ -4,3 +4,4 @@ ohmyzsh/ohmyzsh path:plugins/fancy-ctrl-z
 ohmyzsh/ohmyzsh path:lib/history.zsh
 zsh-users/zsh-autosuggestions
 zdharma-continuum/fast-syntax-highlighting
+zdharma-continuum/history-search-multi-word
