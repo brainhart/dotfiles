@@ -46,6 +46,11 @@ setopt incappendhistory
 
 export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME"/ripgrep/ripgreprc
 
+
+
+alias j="just"
+alias .j="just --justfile $XDG_CONFIG_HOME/just/justfile --working-directory ."
+
 # ------------------------------------------------------------------------------
 # -------------------------------------fzf--------------------------------------
 # ------------------------------------------------------------------------------
