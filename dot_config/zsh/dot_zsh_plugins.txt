@@ -3,4 +3,4 @@ reegnz/jq-zsh-plugin
 ohmyzsh/ohmyzsh path:plugins/fancy-ctrl-z
 ohmyzsh/ohmyzsh path:lib/history.zsh
 zsh-users/zsh-autosuggestions
-zsh-users/zsh-syntax-highlighting
+zdharma-continuum/fast-syntax-highlighting
