@@ -303,32 +303,6 @@ function pip() {
   fi
 }
 
-#-------------------------------------------------------------------------------
-#---------------------------------one password----------------------------------
-#-------------------------------------------------------------------------------
-
-function one_password_signin() {
-	# This will first check if we have a valid session, and if not it will prompt
-	# us to sign-in and export the token. Sessions last for 30m:
-	# https://support.1password.com/command-line-reference/#signin
-  op signin --account team-tecton.1password.com
-}
-
-function get_api_token() {
-	one_password_signin
-	op list items --vault work --tags "$1" | op get item - --fields api-token
-}
-
-function get_tecton_api_token() {
-	one_password_signin
-	op list items --vault work --tags tecton | op get item - --fields "$1"
-}
-
-function get_aws_vault_keychain() {
-	one_password_signin
-	op list items --vault work --tags aws | op get item - --fields aws-vault-keychain | pbcopy
-}
-
 function list_port_processes() {
   # https://x.com/seldo/status/1823126087423099192
   sudo lsof -iTCP -sTCP:LISTEN -n -P | awk 'NR>1 {print $9, $1, $2}' | sed 's/.*://' | while read port process pid; do echo "Port $port: $(ps -p $pid -o command= | sed 's/^-//') (PID: $pid)"; done | sort -n | uniq
