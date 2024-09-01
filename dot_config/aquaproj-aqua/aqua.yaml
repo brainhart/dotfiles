@@ -36,3 +36,4 @@ packages:
 - name: caddyserver/caddy@v2.8.4
 - name: casey/just@1.35.0
 - name: zellij-org/zellij@v0.40.1
+- name: cheat/cheat@4.4.2
