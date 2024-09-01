@@ -23,6 +23,7 @@ require("lazy").setup({
 		-- { import = "lazyvim.plugins.extras.lang.typescript" },
 		-- { import = "lazyvim.plugins.extras.lang.json" },
 		-- { import = "lazyvim.plugins.extras.ui.mini-animate" },
+		{ import = "lazyvim.plugins.extras.editor.telescope" },
 		{ import = "lazyvim.plugins.extras.coding.copilot" },
 		{ import = "lazyvim.plugins.extras.coding.copilot-chat" },
 		-- import/override with your plugins
