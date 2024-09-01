@@ -50,6 +50,7 @@ export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME"/ripgrep/ripgreprc
 
 alias j="just"
 alias .j="just --justfile $XDG_CONFIG_HOME/just/justfile --working-directory ."
+alias uvx="uv tool run"
 
 # ------------------------------------------------------------------------------
 # -------------------------------------fzf--------------------------------------
@@ -255,53 +256,6 @@ function crg() {
 #-------------------------------------pyenv-------------------------------------
 #-------------------------------------------------------------------------------
 
-alias uvx="uv tool run"
-
-function ls_venvs() {
-  fd --base-directory $VENV_DIR . -d 1 --type directory
-}
-
-function select_venv() {
-  ls_venvs | fzf --preview "VIRTUAL_ENV=$VENV_DIR/{} uv pip freeze" --height 50% --border
-}
-
-function pya() {
-	_VENV=$(select_venv)
-	if [ ! -z $_VENV ]; then
-    source "$VENV_DIR/$_VENV/bin/activate"
-		echo "Activated venv: $_VENV"
-	fi
-}
-
-function pymk() {
-	_VENV="$1"
-  uv venv --preview ${@:2} "$VENV_DIR/$_VENV"
-  source "$VENV_DIR/$_VENV/bin/activate"
-}
-
-function pymk-tmp() {
-	pymk "tmp-$(date '+%Y%m%d-%H%M')"
-}
-
-function pydel() {
-	_VENV=$(select_venv)
-	if [ ! -z $_VENV ]; then
-    rm -rf "$VENV_DIR/$_VENV"
-		echo "Deleted venv: $_VENV"
-	fi
-}
-
-function pydel-tmp() {
-	fd --base-directory "$VENV_DIR" 'tmp-*' -d 1 --type directory --exec rm -rf "{}"
-}
-
-function pip() {
-  if command -v uv >/dev/null 2>&1; then
-    uv pip "$@"
-  else
-    command pip "$@"
-  fi
-}
 
 function list_port_processes() {
   # https://x.com/seldo/status/1823126087423099192
