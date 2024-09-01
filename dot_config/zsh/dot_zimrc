@@ -12,6 +12,10 @@ zmodule ohmyzsh/ohmyzsh --root plugins/fancy-ctrl-z
 zmodule zsh-users/zsh-autosuggestions
 zmodule zdharma-continuum/fast-syntax-highlighting
 
+zmodule joke/zim-chezmoi
+zmodule joke/zim-k9s
+zmodule joke/zim-yq
+
 
 # SPECIAL
 
