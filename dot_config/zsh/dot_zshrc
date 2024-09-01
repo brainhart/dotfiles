@@ -1,6 +1,4 @@
 #!/bin/zsh
-
-
 # ------------------------------------------------------------------------------
 # -------------------------------------path-------------------------------------
 # ------------------------------------------------------------------------------
@@ -11,12 +9,38 @@ export CODE="${HOME}/code"
 # -----------------------------------plugins------------------------------------
 # ------------------------------------------------------------------------------
 
-_antidote_dir=${ZDOTDIR:-~}/.antidote
-if [[ ! -d $_antidote_dir ]]; then
-	git clone --depth=1 https://github.com/mattmc3/antidote.git $_antidote_dir
+export TERM=xterm-256color
+export CLICOLOR=1
+export LS_COLORS='di=0;35'
+
+HISTSIZE=5000
+HISTFILE="$XDG_CACHE_HOME"/zsh/.zsh_history
+SAVEHIST=5000
+setopt appendhistory
+setopt sharehistory
+setopt incappendhistory
+set bell-style none
+
+zstyle ':zim:zmodule' use 'degit'
+ZVM_INIT_MODE=sourcing
+
+ZIM_HOME="$XDG_CACHE_HOME"/zim
+if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
+  curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
+      https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
 fi
-source $_antidote_dir/antidote.zsh
-antidote load
+# Install missing modules, and update ${ZIM_HOME}/init.zsh if missing or outdated.
+if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
+  source ${ZIM_HOME}/zimfw.zsh init -q
+fi
+source ${ZIM_HOME}/init.zsh
+
+# _antidote_dir=${ZDOTDIR:-~}/.antidote
+# if [[ ! -d $_antidote_dir ]]; then
+# 	git clone --depth=1 https://github.com/mattmc3/antidote.git $_antidote_dir
+# fi
+# source $_antidote_dir/antidote.zsh
+# antidote load
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
@@ -26,20 +50,7 @@ eval "$(zoxide init zsh)"
 #-------------------------------settings and path-------------------------------
 #-------------------------------------------------------------------------------
 
-export TERM=xterm-256color
-export CLICOLOR=1
-export LS_COLORS='di=0;35'
-
-set bell-style none
-
 # History
-HISTSIZE=5000
-HISTFILE="$XDG_CACHE_HOME"/zsh/.zsh_history
-SAVEHIST=5000
-setopt appendhistory
-setopt sharehistory
-setopt incappendhistory
-
 export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME"/ripgrep/ripgreprc
 
 
@@ -52,41 +63,41 @@ alias uvx="uv tool run"
 # -------------------------------------fzf--------------------------------------
 # ------------------------------------------------------------------------------
 
-export FZF_DEFAULT_COMMAND='fd --type f'
+# export FZF_DEFAULT_COMMAND='fd --type f'
 
 # Use ~~ as the trigger sequence instead of the default **
-export FZF_COMPLETION_TRIGGER='~~'
+# export FZF_COMPLETION_TRIGGER='~~'
 
 # Options to fzf command
-export FZF_COMPLETION_OPTS='--border --info=inline'
+# export FZF_COMPLETION_OPTS='--border --info=inline'
 
 # Use fd (https://github.com/sharkdp/fd) instead of the default find
 # command for listing path candidates.
 # - The first argument to the function ($1) is the base path to start traversal
 # - See the source code (completion.{bash,zsh}) for the details.
-_fzf_compgen_path() {
-  fd --hidden --follow --exclude ".git" . "$1"
-}
+# _fzf_compgen_path() {
+#   fd --hidden --follow --exclude ".git" . "$1"
+# }
 
 # Use fd to generate the list for directory completion
-_fzf_compgen_dir() {
-  fd --type d --hidden --follow --exclude ".git" . "$1"
-}
+# _fzf_compgen_dir() {
+#   fd --type d --hidden --follow --exclude ".git" . "$1"
+# }
 
 # (EXPERIMENTAL) Advanced customization of fzf options via _fzf_comprun function
 # - The first argument to the function is the name of the command.
 # - You should make sure to pass the rest of the arguments to fzf.
-_fzf_comprun() {
-  local command=$1
-  shift
-
-  case "$command" in
-    cd)           fzf "$@" --preview 'tree -C {} | head -200' ;;
-    export|unset) fzf "$@" --preview "eval 'echo \$'{}" ;;
-    ssh)          fzf "$@" --preview 'dig {}' ;;
-    *)            fzf "$@" ;;
-  esac
-}
+# _fzf_comprun() {
+#   local command=$1
+#   shift
+# 
+#   case "$command" in
+#     cd)           fzf "$@" --preview 'tree -C {} | head -200' ;;
+#     export|unset) fzf "$@" --preview "eval 'echo \$'{}" ;;
+#     ssh)          fzf "$@" --preview 'dig {}' ;;
+#     *)            fzf "$@" ;;
+#   esac
+# }
 
 # ------------------------------------------------------------------------------
 # -------------------------------------git--------------------------------------
@@ -188,19 +199,6 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
-alias l='exa'
-alias ll='exa -l --header'
-alias lo='exa -l --sort=old --header'
-alias la='exa -la --header'
-alias lf='exa --header -d */'
-alias lt='exa -T'
-
-# Tmux
-alias tmux='tmux -2'
-alias tls='tmux ls'
-alias tks='tmux kill-session -t'
-alias tkill='tmux kill-server'
-alias ta='tmux attach'
 
 # Dotfiles Edit
 alias dedit='chezmoi edit'
