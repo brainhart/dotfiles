@@ -21,10 +21,6 @@ antidote load
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
-# https://github.com/jeffreytse/zsh-vi-mode#execute-extra-commands
-# function zvm_after_init() {
-# 	[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# }
 
 #-------------------------------------------------------------------------------
 #-------------------------------settings and path-------------------------------
@@ -90,26 +86,6 @@ _fzf_comprun() {
     ssh)          fzf "$@" --preview 'dig {}' ;;
     *)            fzf "$@" ;;
   esac
-}
-
-function f() {
-	fd --type file | fzf --border --preview 'bat --style=numbers --color=always --line-range :500 {}' "$@"
-}
-
-
-# FZF search files to open in vim
-function vf() {
-	FILE=$(f)
-	if [ ! -z $FILE ]; then
-		nvim "$@" "$FILE"
-	fi
-}
-
-function fcd() {
-	DIR=$(fd --type directory . | fzf --border --preview 'tree {}')
-	if [ ! -z $DIR ]; then
-		cd "$DIR"
-	fi
 }
 
 # ------------------------------------------------------------------------------
@@ -228,39 +204,6 @@ alias ta='tmux attach'
 
 # Dotfiles Edit
 alias dedit='chezmoi edit'
-
-# Remember: (zsh is 1 indexed)
-# Code grep which matches for the text in all sane cases.
-function crg() {
-	local word=$1
-	cases=("Camel" "Pascal" "Snake" "UpperSnake" "Kebab")
-
-	arraylength=${#cases[@]}
-
-	local c="${cases[1]}"
-	searchStr=$(ccase -t $c $word)
-
-	for ((i = 2; i <= arraylength; i++)); do
-		local c="${cases[$i]}"
-		local conv=$(ccase -t $c $word)
-		searchStr="$searchStr|$conv"
-	done
-
-	(
-		shift 1
-		rg $searchStr "$@"
-	)
-}
-
-#-------------------------------------------------------------------------------
-#-------------------------------------pyenv-------------------------------------
-#-------------------------------------------------------------------------------
-
-
-function list_port_processes() {
-  # https://x.com/seldo/status/1823126087423099192
-  sudo lsof -iTCP -sTCP:LISTEN -n -P | awk 'NR>1 {print $9, $1, $2}' | sed 's/.*://' | while read port process pid; do echo "Port $port: $(ps -p $pid -o command= | sed 's/^-//') (PID: $pid)"; done | sort -n | uniq
-}
 
 # ------------------------------------------------------------------------------
 # ------------------------------------local-------------------------------------
