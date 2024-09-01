@@ -1,0 +1,57 @@
+set unstable
+
+mod tecton
+mod tectonctl
+
+default:
+  @just -f {{source_file()}} --choose
+
+system-info:
+  @echo "This is an {{arch()}} machine".
+
+# https://x.com/seldo/status/1823126087423099192
+list-port-processes:
+  sudo lsof -iTCP -sTCP:LISTEN -n -P | awk 'NR>1 {print $9, $1, $2}' | sed 's/.*://' | while read port process pid; do echo "Port $port: $(ps -p $pid -o command= | sed 's/^-//') (PID: $pid)"; done | sort -n | uniq
+
+[script("bash")]
+[no-cd]
+multicase-rg word *args:
+  cases=("Camel" "Pascal" "Snake" "UpperSnake" "Kebab")
+  arraylength=${#cases[@]}
+
+  c="${cases[0]}"
+  searchStr=$(ccase -t $c {{word}})
+
+  for ((i = 1; i < arraylength; i++)); do
+    c="${cases[$i]}"
+    conv=$(ccase -t $c {{word}})
+    searchStr="$searchStr|$conv"
+  done
+
+  (
+    shift 1
+    rg $searchStr {{args}}
+  )
+
+
+_file_finder := "FZF_DEFAULT_COMMAND='fd --type file' fzf --border --preview 'bat --style=numbers --color=always --line-range :500 {}'"
+
+[no-cd]
+file-finder *args:
+  {{_file_finder}} {{args}}
+
+[no-cd]
+dir-finder:
+  fd --type directory . | fzf --border --preview 'tree {}'
+
+
+[no-cd]
+vim-file-finder:
+  {{_file_finder}} --bind 'enter:become(nvim {})'
+
+
+# Example with Python
+# python:
+#   #!/usr/bin/env uv --no-config run --with requests -q -p 3.11 python
+#   import requests
+#   print(f'Hello from python {requests.__version__}!')
