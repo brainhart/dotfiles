@@ -35,3 +35,4 @@ packages:
 - name: hashicorp/terraform@v1.5.7
 - name: caddyserver/caddy@v2.8.4
 - name: casey/just@1.35.0
+- name: zellij-org/zellij@v0.40.1
