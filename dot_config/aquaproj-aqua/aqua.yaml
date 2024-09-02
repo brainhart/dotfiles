@@ -38,3 +38,4 @@ packages:
 - name: zellij-org/zellij@v0.40.1
 - name: cheat/cheat@4.4.2
 - name: errata-ai/vale@v3.7.1
+- name: crates.io/shellharden@4.3.1
