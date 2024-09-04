@@ -7,6 +7,9 @@ tectonctl_cmd := 'uv run --no-project --with-requirements ' + tecton_repo / 'too
 default:
   @just -f {{source_file()}} --choose
 
+aws-web *args:
+  {{tectonctl_cmd}} aws-web $@
+
 run *args:
   {{tectonctl_cmd}} -- $@
 
