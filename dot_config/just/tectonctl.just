@@ -16,5 +16,5 @@ vpn:
 select_role_cmd := tectonctl_cmd + ' list-roles | fzf --height 50% --border'
 
 login *args:
-	tectonctl teleport-login "$({{select_role_cmd}})" $@
+  {{tectonctl_cmd}} teleport-login "$({{select_role_cmd}})" $@
 
