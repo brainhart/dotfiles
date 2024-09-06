@@ -43,3 +43,6 @@ run-buildkite *args:
 
 promote-dev branch:
 	{{_run_buildkite_cmd}} -p 'set-cluster-target-branch-flux' -d 'cluster-config-names-json=["dev-gen-ai"]' -b $1
+
+cli *args:
+  uv tool run -p 3.11 --with 'tecton~=1.0.0rc0' tecton
