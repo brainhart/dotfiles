@@ -1,0 +1,18 @@
+{
+  extends: [
+    'config:recommended',
+    'github>aquaproj/aqua-renovate-config#2.2.0',
+  ],
+  customManagers: [
+    {
+      customType: 'regex',
+      fileMatch: [
+        '.*\\.go',
+      ],
+      depNameTemplate: 'aquaproj/aqua-registry',
+      datasourceTemplate: 'github-releases',
+      matchStrings: [
+        '"(?<currentValue>.*)",? // renovate: depName=aquaproj/aqua-registry',
+      ],
+    },
+}
