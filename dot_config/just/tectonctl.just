@@ -4,8 +4,8 @@ set positional-arguments
 tecton_repo := env_var('HOME') / "/code/source/tecton/tecton"
 tectonctl_cmd := 'uv run ' + tecton_repo / 'infrastructure/deployment/tectonctl.py'
 
-default:
-  @just -f {{source_file()}} --choose
+default *args:
+  {{tectonctl_cmd}} -- $@
 
 aws-web *args:
   {{tectonctl_cmd}} aws-web $@
