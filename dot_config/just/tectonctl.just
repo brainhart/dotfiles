@@ -2,7 +2,7 @@ set quiet
 set positional-arguments
 
 tecton_repo := env_var('HOME') / "/code/source/tecton/tecton"
-tectonctl_cmd := 'uv run --no-project --with-requirements ' + tecton_repo / 'tools/requirements.txt ' + tecton_repo / 'infrastructure/deployment/tectonctl.py'
+tectonctl_cmd := 'uv run ' + tecton_repo / 'infrastructure/deployment/tectonctl.py'
 
 default:
   @just -f {{source_file()}} --choose
