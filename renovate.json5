@@ -15,4 +15,5 @@
         '"(?<currentValue>.*)",? // renovate: depName=aquaproj/aqua-registry',
       ],
     },
+  ],
 }
