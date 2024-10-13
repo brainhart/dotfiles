@@ -1,0 +1,8 @@
+0000000000000000000000000000000000000000 a22976111e406ec0e4903ae78bf66a1fc0125b8a Brian Hart <brian@tecton.ai> 1725251499 -0700	clone: from github.com:brainhart/kickstart.nvim.git
+a22976111e406ec0e4903ae78bf66a1fc0125b8a c2ee04edcf2cdfcb992489ced30ba417d9650741 Brian Hart <brian@tecton.ai> 1725251589 -0700	commit: Don't ignore lazy-lock.json
+c2ee04edcf2cdfcb992489ced30ba417d9650741 4a4a30f3ec0054493a93178fb61437d5cc5c5d4a Brian Hart <brian@tecton.ai> 1725251692 -0700	commit: Commit lazy-lock.json
+4a4a30f3ec0054493a93178fb61437d5cc5c5d4a aac8e7a8e672a749c69f9e650aaf067a87b19e84 Brian Hart <brian@tecton.ai> 1725257148 -0700	commit: Update vim settings
+aac8e7a8e672a749c69f9e650aaf067a87b19e84 d9edc8cb54e43b81328ed9b4d28f8eaedfbddb2c Brian Hart <brian@tecton.ai> 1725257160 -0700	commit (amend): Update vim settings
+d9edc8cb54e43b81328ed9b4d28f8eaedfbddb2c 63103a002ad6efdd39bec26f84cd43539eff4be0 Brian Hart <brian@tecton.ai> 1725257169 -0700	commit: Update pins
+63103a002ad6efdd39bec26f84cd43539eff4be0 e3d2398c300d3c42a7e7f58feb85d703fd91d8ba Brian Hart <brian@tecton.ai> 1725257172 -0700	commit (amend): Update lazy-lock.json
+e3d2398c300d3c42a7e7f58feb85d703fd91d8ba ba1e7cf9b758df97b01b02fb911c30fada221b15 Brian Hart <brian@tecton.ai> 1725292167 -0700	commit: Improve configuration with linter and snippets
