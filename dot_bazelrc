@@ -1,3 +1,5 @@
 test --test_output=errors
-build --disk_cache=~/.cache/bazel
 build --//java/kotlinc:warn=off
+common --disk_cache=~/.cache/bazel
+common --experimental_disk_cache_gc_max_size=40G
+common --experimental_disk_cache_gc_max_age=14d
