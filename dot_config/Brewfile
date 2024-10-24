@@ -1,0 +1,18 @@
+tap "homebrew/bundle"
+tap "homebrew/cask-fonts"
+tap "homebrew/services"
+tap "withgraphite/tap"
+
+brew "withgraphite/tap/graphite"
+brew "coreutils"
+brew "curl"
+brew "git"
+brew "gnu-sed"
+brew "go"
+brew "grep"
+brew "htop"
+brew "rust"
+brew "tmux"
+brew "tmuxinator"
+brew "tree"
+
