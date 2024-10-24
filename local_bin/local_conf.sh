@@ -10,3 +10,4 @@ export AQUA_POLICY_CONFIG=${AQUA_POLICY_CONFIG:-}:"${TECTON_REPO_PATH}/.aqua/aqu
 
 alias pre-commit='uvx pre-commit'
 alias cdt='cd $TECTON'
+alias tectonctl="$TECTON/infrastructure/deployment/tectonctl.py"
