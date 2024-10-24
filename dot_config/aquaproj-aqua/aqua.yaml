@@ -43,3 +43,4 @@ packages:
 - name: phiresky/ripgrep-all@v0.10.6
 - name: dandavison/delta@0.18.2
 - name: pemistahl/grex@v1.4.5
+- name: derailed/k9s@v0.32.5
