@@ -8,6 +8,5 @@ export TECTONCTL_USE_OPENVPN=1
 export AQUA_GLOBAL_CONFIG=${AQUA_GLOBAL_CONFIG:-}:"${TECTON_REPO_PATH}/.aqua/aqua.yaml"
 export AQUA_POLICY_CONFIG=${AQUA_POLICY_CONFIG:-}:"${TECTON_REPO_PATH}/.aqua/aqua-policy.yaml"
 
-alias pre-commit='uvx pre-commit'
 alias cdt='cd $TECTON'
 alias tectonctl="$TECTON/infrastructure/deployment/tectonctl.py"
