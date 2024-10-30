@@ -14,3 +14,6 @@ packages:
     repo_name: kraftkit
     asset: kraft_{{trimV .Version}}_{{.OS}}_{{.Arch}}.tar.gz
     description: A next-generation cloud native kernel designed to unlock best-in-class performance, security primitives and efficiency savings.
+    files:
+      - name: kraft
+      - name: kraftld
