@@ -45,8 +45,5 @@ export path=(
 
 export SHELL_SESSIONS_DISABLE=1
 
-export AQUA_GLOBAL_CONFIG=${XDG_CONFIG_HOME:-$HOME/.config}/aquaproj-aqua/aqua.yaml
-export AQUA_POLICY_CONFIG=${XDG_CONFIG_HOME:-$HOME/.config}/aquaproj-aqua/policy.yaml
-
 # Added by OrbStack: command-line tools and integration
 source ~/.orbstack/shell/init.zsh 2>/dev/null || :
