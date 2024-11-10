@@ -48,3 +48,4 @@ packages:
 - name: unikraft/kraftkit@v0.9.2
   registry: brian-local
 - name: regclient/regclient/regctl@v0.7.2
+- name: oras-project/oras@v1.2.0
