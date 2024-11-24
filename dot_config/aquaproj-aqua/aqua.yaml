@@ -50,3 +50,4 @@ packages:
 - name: regclient/regclient/regctl@v0.7.2
 - name: oras-project/oras@v1.2.0
 - name: tailscale/tailscale@v1.76.6
+- name: fluxcd/flux2@v2.4.0
