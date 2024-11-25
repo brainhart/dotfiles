@@ -51,3 +51,5 @@ packages:
 - name: oras-project/oras@v1.2.0
 - name: tailscale/tailscale@v1.76.6
 - name: fluxcd/flux2@v2.4.0
+- name: superfly/flyctl@v0.3.34
+  registry: brian-local

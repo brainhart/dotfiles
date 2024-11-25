@@ -21,5 +21,14 @@ packages:
     files:
       - name: kraft
       - name: kraftld
-
-
+  - type: github_release
+    repo_owner: superfly
+    repo_name: flyctl
+    asset: flyctl_{{trimV .Version}}_{{.OS}}_{{.Arch}}.tar.gz
+    description: A next-generation cloud native kernel designed to unlock best-in-class performance, security primitives and efficiency savings.
+    checksum:
+      type: github_release
+      asset: flyctl_{{trimV .Version}}_checksums.txt
+      algorithm: sha256
+    replacements:
+      darwin: macOS
