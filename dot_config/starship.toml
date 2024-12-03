@@ -1,4 +1,20 @@
 # ~/.config/starship.toml
+format = """
+$username\
+$hostname\
+$localip\
+$directory\
+$memory_usage\
+$direnv\
+$env_var\
+$custom\
+$sudo\
+$cmd_duration\
+$line_break\
+$jobs\
+$battery\
+$character"""
+
 
 [nodejs]
 disabled=true
@@ -14,13 +30,14 @@ disabled=true
 
 [kubernetes]
 format = '[$context]($style)'
-disabled=false
+disabled=true
 contexts = [
   { context_pattern = "tecton.teleport.sh-(?P<cluster>.+)", context_alias="⛵ $cluster ", style = "green" },
   { context_pattern = "orbstack", context_alias="", style = "" },
 ]
 
 [custom.teleport-aws]
+disabled=true
 format=' [$symbol ($output) ]($style)'
 command = 'tsh apps config -f json | jq -r ".aws_role_arn | split(\"/\")[-1]"'
 when='[ -n "$(tsh apps config -f json | jq -r ".aws_role_arn | split(\"/\")[-1]")" ]'
