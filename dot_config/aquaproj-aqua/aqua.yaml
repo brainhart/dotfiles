@@ -39,7 +39,7 @@ packages:
 - name: cheat/cheat@4.4.2
 - name: errata-ai/vale@v3.7.1
 - name: anordal/shellharden@v4.3.1
-- name: getsops/sops@v3.9.0
+- name: getsops/sops@v3.9.2
 - name: phiresky/ripgrep-all@v0.10.6
 - name: dandavison/delta@0.18.2
 - name: pemistahl/grex@v1.4.5
