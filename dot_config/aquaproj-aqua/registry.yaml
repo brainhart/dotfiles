@@ -32,3 +32,15 @@ packages:
       algorithm: sha256
     replacements:
       darwin: macOS
+  - type: github_release
+    repo_owner: restatedev
+    repo_name: restate
+    asset: restate.{{.Arch}}-{{.OS}}.tar.gz
+    description: Restate is the platform for building resilient applications that tolerate all infrastructure faults w/o the need for a PhD.
+    replacements:
+      darwin: apple-darwin
+      arm64: aarch64
+    files:
+      - name: restate
+      - name: restate-server
+

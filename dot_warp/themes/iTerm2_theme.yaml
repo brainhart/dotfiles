@@ -1,0 +1,37 @@
+---
+background: "#1e1e1e"
+accent: "#f73028"
+foreground: "#e6d4a3"
+cursor: "#e6d4a3"
+details:
+  custom:
+    main_text_opacity: 90
+    sub_text_opacity: 60
+    hint_text_opacity: 40
+    disabled_text_opacity: 20
+    foreground_button_opacity: 30
+    accent_button_opacity: 0
+    button_hover_opacity: 10
+    button_click_opacity: 20
+    keybinding_row_overlay_opacity: 40
+    welcome_tips_completion_overlay_opacity: 90
+terminal_colors:
+  normal:
+    black: "#1e1e1e"
+    red: "#be0f17"
+    green: "#868715"
+    yellow: "#cc881a"
+    blue: "#377375"
+    magenta: "#a04b73"
+    cyan: "#578e57"
+    white: "#978771"
+  bright:
+    black: "#7f7061"
+    red: "#f73028"
+    green: "#aab01e"
+    yellow: "#f7b125"
+    blue: "#719586"
+    magenta: "#c77089"
+    cyan: "#7db669"
+    white: "#e6d4a3"
+name: Imported iTerm Theme
