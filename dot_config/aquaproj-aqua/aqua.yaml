@@ -53,3 +53,4 @@ packages:
 - name: fluxcd/flux2@v2.4.0
 - name: superfly/flyctl@v0.3.34
   registry: brian-local
+- name: gptscript-ai/gptscript@v0.9.5
