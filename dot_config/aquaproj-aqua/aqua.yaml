@@ -26,7 +26,7 @@ packages:
 - name: dbrgn/tealdeer@v1.6.1
 - name: mikefarah/yq@v4.44.3
 - name: ajeetdsouza/zoxide@v0.9.6
-- name: astral-sh/rye@0.39.0
+- name: astral-sh/rye@0.43.0
 - name: cloudflare/cloudflared@2024.9.1
 - name: volta-cli/volta@v2.0.1
 - name: tsenart/vegeta@v12.12.0
