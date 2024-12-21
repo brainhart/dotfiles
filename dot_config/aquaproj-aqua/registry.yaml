@@ -43,4 +43,11 @@ packages:
     files:
       - name: restate
       - name: restate-server
-
+  - type: github_release
+    repo_owner: bazelbuild
+    repo_name: bazel-watcher
+    description: Tools for building Bazel targets when source files change.
+    asset: ibazel_{{.OS}}_{{.Arch}}
+    format: raw
+    files:
+      - name: ibazel
