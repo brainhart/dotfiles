@@ -62,3 +62,5 @@ packages:
   registry: brian-local
 - name: pnpm/pnpm@v9.15.0
 - name: caddyserver/caddy@v2.8.4
+- name: caddyserver/xcaddy@v0.4.4
+  registry: brian-local

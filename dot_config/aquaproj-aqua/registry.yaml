@@ -51,3 +51,22 @@ packages:
     format: raw
     files:
       - name: ibazel
+  - type: github_release
+    repo_owner: caddyserver
+    repo_name: xcaddy
+    description: Build Caddy with plugins
+    version_constraint: "false"
+    version_overrides:
+      - version_constraint: semver(">= 0.4.0")
+        asset: xcaddy_{{trimV .Version}}_{{.OS}}_{{.Arch}}.{{.Format}}
+        format: tar.gz
+        replacements:
+          darwin: mac
+        overrides:
+          - goos: windows
+            format: zip
+        checksum:
+          type: github_release
+          asset: xcaddy_{{trimV .Version}}_checksums.txt
+          algorithm: sha512
+
