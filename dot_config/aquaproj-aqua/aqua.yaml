@@ -37,7 +37,7 @@ packages:
 - name: casey/just@1.38.0
 - name: zellij-org/zellij@v0.40.1
 - name: cheat/cheat@4.4.2
-- name: errata-ai/vale@v3.7.1
+- name: errata-ai/vale@v3.9.3
 - name: anordal/shellharden@v4.3.1
 - name: getsops/sops@v3.9.2
 - name: phiresky/ripgrep-all@v0.10.6
