@@ -1,0 +1,30 @@
+{
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+    "diffEditor.codeLens": true,
+    "remote.SSH.configFile": "/Users/brian/.ssh/config",
+    "remote.SSH.defaultExtensions": [
+        "anyscalecompute.anyscale-workspaces",
+        "ms-python.python",
+        "ms-toolsai.jupyter-renderers",
+        "ms-toolsai.jupyter-keymap",
+        "ms-pyright.pyright",
+        "ms-toolsai.jupyter"
+    ],
+    "window.zoomLevel": -1,
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "python.venvPath": "/Users/brian/.local/share/brian-venvs",
+    "python.envFile": "${workspaceFolder}/.dev.env",
+    "python.defaultInterpreterPath": "/Users/brian/.local/share/brian-venvs/tmp-20240827-1433",
+    "python.createEnvironment.trigger": "off",
+    "python.locator": "native",
+    "zenMode.centerLayout": false,
+    "zenMode.hideLineNumbers": false,
+    "zenMode.showTabs": "single",
+    "zenMode.restore": true,
+    "workbench.colorTheme": "Default Light Modern",
+    "plantuml.diagramsRoot": "diagrams",
+    "plantuml.exportFormat": "svg"
+}
