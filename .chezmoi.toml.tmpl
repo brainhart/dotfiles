@@ -4,3 +4,11 @@
 email = {{ $email | quote }}
 personal_device = {{ promptBool "personal_device" }}
 work_device = {{ promptBool "work_device" }}
+
+[git]
+autoCommit = true
+autoPush = true
+
+[merge]
+command = "nvim"
+args = ["-d", "{{ .Destination }}", "{{ .Source }}", "{{ .Target }}"]
