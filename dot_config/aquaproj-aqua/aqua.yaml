@@ -66,3 +66,4 @@ packages:
   registry: brian-local
 - name: terrastruct/d2@v0.6.8
 - name: rclone/rclone@v1.68.2
+- name: Schniz/fnm@v1.38.1
