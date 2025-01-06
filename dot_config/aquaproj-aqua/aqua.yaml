@@ -22,7 +22,7 @@ packages:
 - name: neovim/neovim@v0.10.2
 - name: chmln/sd@v1.0.0
 - name: koalaman/shellcheck@v0.10.0
-- name: mvdan/sh@v3.9.0
+- name: mvdan/sh@v3.10.0
 - name: dbrgn/tealdeer@v1.6.1
 - name: mikefarah/yq@v4.44.6
 - name: ajeetdsouza/zoxide@v0.9.6
