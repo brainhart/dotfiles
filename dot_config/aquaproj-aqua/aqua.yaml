@@ -55,7 +55,7 @@ packages:
   registry: brian-local
 - name: gptscript-ai/gptscript@v0.9.5
 - name: rust-lang/mdBook@v0.4.43
-- name: restatedev/restate@v1.1.3
+- name: restatedev/restate@v1.1.6
   registry: brian-local
 - name: bazelbuild/bazelisk@v1.25.0
 - name: bazelbuild/bazel-watcher@v0.25.3
