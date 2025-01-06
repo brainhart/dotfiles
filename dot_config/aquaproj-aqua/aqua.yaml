@@ -35,7 +35,7 @@ packages:
 - name: hashicorp/terraform@v1.10.3
 - name: caddyserver/caddy@v2.8.4
 - name: casey/just@1.38.0
-- name: zellij-org/zellij@v0.40.1
+- name: zellij-org/zellij@v0.41.2
 - name: cheat/cheat@4.4.2
 - name: errata-ai/vale@v3.9.3
 - name: anordal/shellharden@v4.3.1
