@@ -1,6 +1,6 @@
 registries:
 - type: standard
-  ref: v4.281.0 # renovate: depName=aquaproj/aqua-registry
+  ref: v4.292.0 # renovate: depName=aquaproj/aqua-registry
 - name: brian-local
   type: local
   path: registry.yaml
@@ -68,4 +68,4 @@ packages:
 - name: terrastruct/d2@v0.6.8
 - name: rclone/rclone@v1.68.2
 - name: Schniz/fnm@v1.38.1
-- name: atuinsh/atuin@v18.4.0
+
