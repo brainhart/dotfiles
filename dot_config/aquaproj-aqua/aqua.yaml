@@ -69,3 +69,4 @@ packages:
 - name: rclone/rclone@v1.68.2
 - name: Schniz/fnm@v1.38.1
 - name: atuinsh/atuin@v18.4.0
+- name: aws/aws-cli@2.23.6
