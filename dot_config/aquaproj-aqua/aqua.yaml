@@ -71,3 +71,4 @@ packages:
 - name: atuinsh/atuin@v18.4.0
 - name: aws/aws-cli@2.23.6
 - name: snyk/driftctl@v0.40.0
+- name: GoogleCloudPlatform/terraformer@0.8.24
