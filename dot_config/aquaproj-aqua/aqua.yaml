@@ -72,3 +72,4 @@ packages:
 - name: aws/aws-cli@2.23.6
 - name: snyk/driftctl@v0.40.0
 - name: GoogleCloudPlatform/terraformer@0.8.24
+- name: cloudposse/atmos@v1.157.0
