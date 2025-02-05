@@ -44,6 +44,7 @@ export path=(
 	~/.cargo/bin(N)
 	$HOMEBREW_PREFIX/opt/postgresql@11/bin(N)
   ~/.local/
+  $HOME/.krew/bin
   $path
 )
 eval "$(fnm env --use-on-cd --version-file-strategy=recursive)"
