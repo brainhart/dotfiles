@@ -1,5 +1,8 @@
 #!/bin/bash
 
+export FORGE_REPO_PATH="$HOME/code/source/monorepo/"
+alias forgectl="$FORGE_REPO_PATH/infrastructure/forgectl"
+
 {{ if .work_device }}
 export TECTON="$HOME/code/source/tecton/tecton"
 export TECTON_REPO_PATH=$TECTON
