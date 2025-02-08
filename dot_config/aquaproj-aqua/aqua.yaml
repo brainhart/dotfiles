@@ -81,3 +81,4 @@ packages:
 - name: stefanprodan/timoni@v0.23.0
 - name: kubernetes-sigs/krew@v0.4.4
 - name: segmentio/chamber@v3.1.1
+- name: golang/go@go1.23.6
