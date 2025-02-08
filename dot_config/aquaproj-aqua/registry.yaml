@@ -96,3 +96,6 @@ packages:
     files:
       - name: fd
         src: fd-{{.Version}}-{{.Arch}}-{{.OS}}/fd
+  - type: go_install
+    path: github.com/bazelbuild/buildtools/buildozer
+    description: Buildozer is a command line tool to rewrite multiple Bazel BUILD files using standard commands.
