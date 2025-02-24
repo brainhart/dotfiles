@@ -82,3 +82,4 @@ packages:
 - name: kubernetes-sigs/krew@v0.4.4
 - name: segmentio/chamber@v3.1.1
 - name: golang/go@go1.23.6 
+- name: wagoodman/dive@v0.12.0
