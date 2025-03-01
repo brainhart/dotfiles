@@ -52,7 +52,7 @@ packages:
 - name: oras-project/oras@v1.2.2
 - name: tailscale/tailscale@v1.78.1
 - name: fluxcd/flux2@v2.4.0
-- name: superfly/flyctl@v0.3.53
+- name: superfly/flyctl@v0.3.87
   registry: brian-local
 - name: gptscript-ai/gptscript@v0.9.5
 - name: rust-lang/mdBook@v0.4.43
