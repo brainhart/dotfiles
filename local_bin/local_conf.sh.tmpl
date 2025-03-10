@@ -3,4 +3,5 @@
 {{ if .work_device }}
 export FORGE_REPO_PATH="$HOME/code/source/monorepo/"
 alias forgectl="$FORGE_REPO_PATH/tools/forgectl/forgectl"
+alias refresh="eval $(forgectl refresh)"
 {{ end }}
