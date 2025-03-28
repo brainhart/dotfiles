@@ -50,6 +50,7 @@ return {
 	{
 		"yetone/avante.nvim",
 		event = "VeryLazy",
+		version = false, -- set this if you want to always pull the latest change
 		-- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
 		build = "make",
 		-- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
