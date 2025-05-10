@@ -85,3 +85,5 @@ packages:
 - name: anordal/shellharden@v4.3.1
 - name: terrastruct/d2@v0.6.9
 - name: terrastruct/tala@v0.4.2
+- name: mozilla/sccache@v0.10.0
+
