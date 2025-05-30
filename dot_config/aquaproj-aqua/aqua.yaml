@@ -20,7 +20,7 @@ packages:
 - name: sharkdp/hyperfine@v1.19.0
 - name: jqlang/jq@jq-1.7.1
 - name: jesseduffield/lazygit@v0.48.0
-- name: neovim/neovim@v0.10.4
+- name: neovim/neovim@v0.11.2
 - name: chmln/sd@v1.0.0
 - name: koalaman/shellcheck@v0.10.0
 - name: mvdan/sh@v3.11.0
