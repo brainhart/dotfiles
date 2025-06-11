@@ -31,7 +31,7 @@ packages:
 - name: cloudflare/cloudflared@2025.2.1
 - name: volta-cli/volta@v2.0.2
 - name: tsenart/vegeta@v12.12.0
-- name: microsoft/kiota@v1.24.1
+- name: microsoft/kiota@v1.27.0
 - name: astral-sh/uv@0.6.9
 - name: hashicorp/terraform@v1.11.2
 - name: caddyserver/caddy@v2.9.1
