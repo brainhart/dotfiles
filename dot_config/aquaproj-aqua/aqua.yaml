@@ -68,7 +68,7 @@ packages:
 - name: rclone/rclone@v1.69.1
 - name: Schniz/fnm@v1.38.1
 - name: atuinsh/atuin@v18.4.0
-- name: aws/aws-cli@2.25.1
+- name: aws/aws-cli@2.27.35
 - name: snyk/driftctl@v0.40.0
 - name: GoogleCloudPlatform/terraformer@0.8.24
 - name: cloudposse/atmos@v1.166.0
