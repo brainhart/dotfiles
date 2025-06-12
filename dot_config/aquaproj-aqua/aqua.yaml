@@ -71,7 +71,7 @@ packages:
 - name: aws/aws-cli@2.25.1
 - name: snyk/driftctl@v0.40.0
 - name: GoogleCloudPlatform/terraformer@0.8.24
-- name: cloudposse/atmos@v1.166.0
+- name: cloudposse/atmos@v1.180.0
 - name: 99designs/aws-vault@v7.2.0
 - name: helm/helm@v3.17.2
 - name: kubernetes-sigs/kustomize@kustomize/v5.6.0
