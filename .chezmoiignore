@@ -1,2 +1,21 @@
+# Always ignored
 Brewfile
 README.md
+
+# macOS-only files
+{{ if ne .chezmoi.os "darwin" }}
+bin/executable_copy
+dot_aerospace.toml
+dot_warp
+iterm2_profile
+raycast
+private_Library
+dot_config/skhd
+dot_config/yabai
+dot_config/aquaproj-aqua
+run_once_0009_sys_defaults.sh.tmpl
+{{ end }}
+
+# Work device only
+{{ if not .work_device }}
+{{ end }}
