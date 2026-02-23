@@ -1,0 +1,30 @@
+#:schema https://docs.jj-vcs.dev/latest/config-schema.json
+
+[user]
+name = "Brian Hart"
+email = {{ .email | quote }}
+
+[aliases]
+# View logs
+s = ["log", "--limit", "15"]                    # stack: quick view of recent commits
+ss = ["log", "--limit", "15", "--stat"]         # stack+stats: with file changes
+c = ["log", "-r", "conflicts()"]                # conflicts: show commits with conflicts
+
+# Common operations
+d = ["diff"]                                    # diff working copy
+ds = ["diff", "--stat"]                         # diff with stats only
+st = ["status"]                                 # status
+
+# Rebase shortcuts
+onto = ["rebase", "-r", "@", "-d"]              # move current commit: jj onto <dest>
+restack = ["rebase", "-s"]                      # rebase subtree: jj restack <source> -d <dest>
+
+# Bookmark management (move nearest bookmark to parent)
+tug = ["bookmark", "move", "--from", "closest_bookmark(@-)", "--to", "@-"]
+
+[revset-aliases]
+# Find the closest bookmark in ancestors
+"closest_bookmark(to)" = "heads(::to & bookmarks())"
+
+# Show full stack from trunk to working copy
+"stack()" = "ancestors(@) & descendants(trunk())"
