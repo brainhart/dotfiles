@@ -36,19 +36,31 @@ export VOLTA_HOME="$HOME/.volta"
 
 export path=(
   ~/bin(N)
+  ~/.local/bin
   ~/.local/share/aquaproj-aqua/bin
   $HOMEBREW_PREFIX/{bin,sbin}(N)
-  $VOLTA_HOME/bin:$PATH
+  # $VOLTA_HOME/bin:$PATH
+  $VOLTA_HOME/bin
   /usr/local/{bin,sbin}(N)
-  ~/.local/bin
-	~/.cargo/bin(N)
-	$HOMEBREW_PREFIX/opt/postgresql@11/bin(N)
+  ~/.cargo/bin(N)
+  $HOMEBREW_PREFIX/opt/postgresql@11/bin(N)
   ~/.local/
   $HOME/.krew/bin
   $HOME/go/bin
+  /Applications/WezTerm.app/Contents/MacOS
   $path
 )
-eval "$(fnm env --use-on-cd --version-file-strategy=recursive)"
+if command -v fnm >/dev/null 2>&1; then
+  aqua_root="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}"
+  fnm_multishell="${FNM_MULTISHELL_PATH:-${XDG_RUNTIME_DIR:-$HOME/.xdg}/fnm_multishells}"
+  if [[ -w "$aqua_root" && -w "${fnm_multishell%/*}" ]]; then
+    mkdir -p "$fnm_multishell" 2>/dev/null
+    if [[ -w "$fnm_multishell" ]]; then
+      export FNM_MULTISHELL_PATH="$fnm_multishell"
+      eval "$(fnm env --use-on-cd --version-file-strategy=recursive)"
+    fi
+  fi
+fi
 
 export SHELL_SESSIONS_DISABLE=1
 

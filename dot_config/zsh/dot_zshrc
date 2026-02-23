@@ -158,6 +158,15 @@ alias dedit='chezmoi edit'
 
 eval "$(atuin init zsh)"
 
+# alias gam='/Users/brianhart/bin/gam7/gam'
+
+
+function bump-release() {
+  bjj sync
+  jj bookmark move release --to 'dev@origin'
+  jj git push -b release -r 'dev@origin'
+}
+
 # ------------------------------------------------------------------------------
 # ------------------------------------local-------------------------------------
 # ------------------------------------------------------------------------------
