@@ -2,5 +2,7 @@
 --max-columns=150
 --max-columns-preview
 
+# respect gitignore in non-git repos
+--no-require-git
 
 --glob=!*.svg
