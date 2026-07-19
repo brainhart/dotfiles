@@ -1,0 +1,19 @@
+#!/usr/bin/env dotslash
+
+{
+  "name": "gptscript",
+  "platforms": {
+    "macos-aarch64": {
+      "size": 32916496,
+      "hash": "blake3",
+      "digest": "61acf33ae28ab38d5d90c4ab3559cd3fc93e83a2f00b3164c5a2b6590e855ca4",
+      "format": "tar.gz",
+      "path": "gptscript",
+      "providers": [
+        {
+          "url": "https://github.com/gptscript-ai/gptscript/releases/download/v0.9.9/gptscript-v0.9.9-macOS-universal.tar.gz"
+        }
+      ]
+    }
+  }
+}

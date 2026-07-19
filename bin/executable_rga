@@ -1,0 +1,3 @@
+#!/usr/bin/env dotslash
+
+{"name":"rga","platforms":{"macos-aarch64":{"size":6994828,"hash":"blake3","digest":"20e718476ab019fb9a9a932d1477c75557cce5d92f2fe00b13d7beafa799f45b","format":"tar.gz","path":"ripgrep_all-v0.10.10-aarch64-apple-darwin/rga","providers":[{"url":"https://github.com/phiresky/ripgrep-all/releases/download/v0.10.10/ripgrep_all-v0.10.10-aarch64-apple-darwin.tar.gz"}]}}}

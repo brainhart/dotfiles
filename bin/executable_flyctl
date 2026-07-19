@@ -1,0 +1,19 @@
+#!/usr/bin/env dotslash
+
+{
+  "name": "flyctl",
+  "platforms": {
+    "macos-aarch64": {
+      "size": 50529649,
+      "hash": "blake3",
+      "digest": "7b3bb358a5fed7c26e03e775a80d5c253f9ad8de053ffa504952b6c4fd02ee45",
+      "format": "tar.gz",
+      "path": "flyctl",
+      "providers": [
+        {
+          "url": "https://github.com/superfly/flyctl/releases/download/v0.4.71/flyctl_0.4.71_macOS_arm64.tar.gz"
+        }
+      ]
+    }
+  }
+}

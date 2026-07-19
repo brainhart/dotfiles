@@ -1,0 +1,18 @@
+#!/usr/bin/env dotslash
+
+{
+  "name": "chamber",
+  "platforms": {
+    "macos-aarch64": {
+      "size": 34096530,
+      "hash": "blake3",
+      "digest": "28b2a4bc188d33232683180878a54697af9fe196c61373f88f6234b026d52352",
+      "path": "chamber",
+      "providers": [
+        {
+          "url": "https://github.com/segmentio/chamber/releases/download/v3.1.5/chamber-v3.1.5-darwin-arm64"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,19 @@
+#!/usr/bin/env dotslash
+
+{
+  "name": "fnm",
+  "platforms": {
+    "macos-aarch64": {
+      "size": 6268849,
+      "hash": "blake3",
+      "digest": "845a3bcc9fa60ea0d6cac88192ff5d17e48e9225d1375f94a0dd53c83650acf8",
+      "format": "zip",
+      "path": "fnm",
+      "providers": [
+        {
+          "url": "https://github.com/Schniz/fnm/releases/download/v1.39.0/fnm-macos.zip"
+        }
+      ]
+    }
+  }
+}

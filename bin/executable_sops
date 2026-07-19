@@ -1,0 +1,3 @@
+#!/usr/bin/env dotslash
+
+{"name":"sops","platforms":{"macos-aarch64":{"size":50122210,"hash":"blake3","digest":"0816efdf75cb3d59bf1e663cab3d81b79eeabe5af55b1fd90b56620ebc3c6004","path":"sops","providers":[{"url":"https://github.com/getsops/sops/releases/download/v3.13.2/sops-v3.13.2.darwin.arm64"}]}}}

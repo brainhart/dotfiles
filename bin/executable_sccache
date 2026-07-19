@@ -1,0 +1,19 @@
+#!/usr/bin/env dotslash
+
+{
+  "name": "sccache",
+  "platforms": {
+    "macos-aarch64": {
+      "size": 6508984,
+      "hash": "blake3",
+      "digest": "ce5b7c333a8b4667a4bff8fa68544a32634b9cb4f1bf8914a751a96f41a99417",
+      "format": "tar.gz",
+      "path": "sccache-v0.16.0-aarch64-apple-darwin/sccache",
+      "providers": [
+        {
+          "url": "https://github.com/mozilla/sccache/releases/download/v0.16.0/sccache-v0.16.0-aarch64-apple-darwin.tar.gz"
+        }
+      ]
+    }
+  }
+}

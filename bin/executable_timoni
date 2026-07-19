@@ -1,0 +1,19 @@
+#!/usr/bin/env dotslash
+
+{
+  "name": "timoni",
+  "platforms": {
+    "macos-aarch64": {
+      "size": 17050232,
+      "hash": "blake3",
+      "digest": "fbbf6cdb8f53d7cad4c81cafdab082cc9b40073a8f18ab4e32b8c079b6e68b0c",
+      "format": "tar.gz",
+      "path": "timoni",
+      "providers": [
+        {
+          "url": "https://github.com/stefanprodan/timoni/releases/download/v0.27.0/timoni_0.27.0_darwin_arm64.tar.gz"
+        }
+      ]
+    }
+  }
+}

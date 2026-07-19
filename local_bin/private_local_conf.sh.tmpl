@@ -1,5 +1,8 @@
 #!/bin/bash
 
+export OPENAI_API_KEY={{ env "OPENAI_API_KEY" | quote }}
+export ANTHROPIC_API_KEY={{ env "ANTHROPIC_API_KEY" | quote }}
+
 {{ if .work_device }}
 export FORGE_REPO_PATH="$HOME/code/source/monorepo"
 alias forgectl="$FORGE_REPO_PATH/tools/forgectl/forgectl"

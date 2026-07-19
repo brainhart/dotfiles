@@ -1,0 +1,3 @@
+#!/usr/bin/env dotslash
+
+{"name":"tldr","platforms":{"macos-aarch64":{"size":2776368,"hash":"blake3","digest":"ce413f2ea79449c7377b382b9f391d597bb24e2b62ea4b01994f7a5519a41ec5","path":"tldr","providers":[{"url":"https://github.com/tealdeer-rs/tealdeer/releases/download/v1.8.1/tealdeer-macos-aarch64"}]}}}

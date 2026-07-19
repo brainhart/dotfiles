@@ -1,0 +1,19 @@
+#!/usr/bin/env dotslash
+
+{
+  "name": "k9s",
+  "platforms": {
+    "macos-aarch64": {
+      "size": 39201894,
+      "hash": "blake3",
+      "digest": "c1af531c3f0cbd5578d6e20b3aaefab297240be5c756a17f4469b46506733063",
+      "format": "tar.gz",
+      "path": "k9s",
+      "providers": [
+        {
+          "url": "https://github.com/derailed/k9s/releases/download/v0.51.0/k9s_Darwin_arm64.tar.gz"
+        }
+      ]
+    }
+  }
+}

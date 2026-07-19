@@ -1,0 +1,19 @@
+#!/usr/bin/env dotslash
+
+{
+  "name": "kiota",
+  "platforms": {
+    "macos-aarch64": {
+      "size": 36328871,
+      "hash": "blake3",
+      "digest": "ec3eb287db0d870c3fab2a809e2d2fff4c267296f81b23dbfcc0deb1af9107d7",
+      "format": "zip",
+      "path": "kiota",
+      "providers": [
+        {
+          "url": "https://github.com/microsoft/kiota/releases/download/v1.34.1/osx-arm64.zip"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+#!/usr/bin/env dotslash
+
+{
+  "name": "ibazel",
+  "platforms": {
+    "macos-aarch64": {
+      "size": 8071266,
+      "hash": "blake3",
+      "digest": "1802712587a522f2d0729699685ac5192bedccd093298b7b7c5aa61ace90156e",
+      "path": "ibazel",
+      "providers": [
+        {
+          "url": "https://github.com/bazelbuild/bazel-watcher/releases/download/v0.31.0/ibazel_darwin_arm64"
+        }
+      ]
+    }
+  }
+}

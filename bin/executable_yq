@@ -1,0 +1,3 @@
+#!/usr/bin/env dotslash
+
+{"name":"yq","platforms":{"macos-aarch64":{"size":13045874,"hash":"blake3","digest":"64223041643239b0ff1b20982bdcde3786121157f8cd1c8c05475737bb3ced0b","path":"yq","providers":[{"url":"https://github.com/mikefarah/yq/releases/download/v4.53.3/yq_darwin_arm64"}]}}}

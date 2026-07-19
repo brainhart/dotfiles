@@ -1,0 +1,19 @@
+#!/usr/bin/env dotslash
+
+{
+  "name": "aqua",
+  "platforms": {
+    "macos-aarch64": {
+      "size": 8714725,
+      "hash": "blake3",
+      "digest": "356ebd26161a417c9769fa99e2e082543778ef8916d2be56fc8a4eb6ac116ec3",
+      "format": "tar.gz",
+      "path": "aqua",
+      "providers": [
+        {
+          "url": "https://github.com/aquaproj/aqua/releases/download/v2.62.0/aqua_darwin_arm64.tar.gz"
+        }
+      ]
+    }
+  }
+}

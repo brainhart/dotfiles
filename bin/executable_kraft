@@ -1,0 +1,19 @@
+#!/usr/bin/env dotslash
+
+{
+  "name": "kraft",
+  "platforms": {
+    "macos-aarch64": {
+      "size": 19520617,
+      "hash": "blake3",
+      "digest": "1aab9b5d74abb9d58ac212f5d9523c185f049de7987bfd10958a109276039217",
+      "format": "tar.gz",
+      "path": "kraft",
+      "providers": [
+        {
+          "url": "https://github.com/unikraft/kraftkit/releases/download/v0.12.14/kraft_0.12.14_darwin_arm64.tar.gz"
+        }
+      ]
+    }
+  }
+}

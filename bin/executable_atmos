@@ -1,0 +1,18 @@
+#!/usr/bin/env dotslash
+
+{
+  "name": "atmos",
+  "platforms": {
+    "macos-aarch64": {
+      "size": 271466786,
+      "hash": "blake3",
+      "digest": "fae66fe6227fdd1f5e310f7b7f015ad856a59d8327e68ba2d4e80587b5a7dacc",
+      "path": "atmos",
+      "providers": [
+        {
+          "url": "https://github.com/cloudposse/atmos/releases/download/v1.223.0/atmos_1.223.0_darwin_arm64"
+        }
+      ]
+    }
+  }
+}

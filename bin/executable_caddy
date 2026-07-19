@@ -1,0 +1,19 @@
+#!/usr/bin/env dotslash
+
+{
+  "name": "caddy",
+  "platforms": {
+    "macos-aarch64": {
+      "size": 16448366,
+      "hash": "blake3",
+      "digest": "49e91d0434f18dc19c0c329f0e5184355fefbe50d0efcbe4b6a8f1b43f3a4f33",
+      "format": "tar.gz",
+      "path": "caddy",
+      "providers": [
+        {
+          "url": "https://github.com/caddyserver/caddy/releases/download/v2.11.4/caddy_2.11.4_mac_arm64.tar.gz"
+        }
+      ]
+    }
+  }
+}

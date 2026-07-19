@@ -1,0 +1,19 @@
+#!/usr/bin/env dotslash
+
+{
+  "name": "pnpm",
+  "platforms": {
+    "macos-aarch64": {
+      "size": 47958594,
+      "hash": "blake3",
+      "digest": "5ae1866e2776c78e1a6568069bb7e62184b016cd625f723cf88877cd5d91fa68",
+      "format": "tar.gz",
+      "path": "pnpm",
+      "providers": [
+        {
+          "url": "https://github.com/pnpm/pnpm/releases/download/v11.15.0/pnpm-darwin-arm64.tar.gz"
+        }
+      ]
+    }
+  }
+}

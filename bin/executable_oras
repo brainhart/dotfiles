@@ -1,0 +1,19 @@
+#!/usr/bin/env dotslash
+
+{
+  "name": "oras",
+  "platforms": {
+    "macos-aarch64": {
+      "size": 4399785,
+      "hash": "blake3",
+      "digest": "01dc29c3fe9aed5a38617ca59293a9436d82504c9e1e3574ac31d782d81619f3",
+      "format": "tar.gz",
+      "path": "oras",
+      "providers": [
+        {
+          "url": "https://github.com/oras-project/oras/releases/download/v1.3.3/oras_1.3.3_darwin_arm64.tar.gz"
+        }
+      ]
+    }
+  }
+}

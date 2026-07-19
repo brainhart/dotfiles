@@ -1,0 +1,3 @@
+#!/usr/bin/env dotslash
+
+{"name":"zoxide","platforms":{"macos-aarch64":{"size":482696,"hash":"blake3","digest":"c802b38dd7f08e56fcc71622750b7cbb0dbefeb1a71ccdf8198c76e39eb43c67","format":"tar.gz","path":"zoxide","providers":[{"url":"https://github.com/ajeetdsouza/zoxide/releases/download/v0.10.0/zoxide-0.10.0-aarch64-apple-darwin.tar.gz"}]}}}

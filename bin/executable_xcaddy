@@ -1,0 +1,19 @@
+#!/usr/bin/env dotslash
+
+{
+  "name": "xcaddy",
+  "platforms": {
+    "macos-aarch64": {
+      "size": 1781434,
+      "hash": "blake3",
+      "digest": "382587e3fea4f3b5c0039feaeb103d69302818a071d7009f1524379be5f20605",
+      "format": "tar.gz",
+      "path": "xcaddy",
+      "providers": [
+        {
+          "url": "https://github.com/caddyserver/xcaddy/releases/download/v0.4.5/xcaddy_0.4.5_mac_arm64.tar.gz"
+        }
+      ]
+    }
+  }
+}

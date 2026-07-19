@@ -1,0 +1,18 @@
+#!/usr/bin/env dotslash
+
+{
+  "name": "driftctl",
+  "platforms": {
+    "macos-aarch64": {
+      "size": 76235154,
+      "hash": "blake3",
+      "digest": "1de23c6f245ba79084f6ee30f62882c225ce661d38664624b6dbd29f3c073106",
+      "path": "driftctl",
+      "providers": [
+        {
+          "url": "https://github.com/snyk/driftctl/releases/download/v0.40.0/driftctl_darwin_arm64"
+        }
+      ]
+    }
+  }
+}

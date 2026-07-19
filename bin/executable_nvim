@@ -1,0 +1,3 @@
+#!/usr/bin/env dotslash
+
+{"name":"nvim","platforms":{"macos-aarch64":{"size":9630250,"hash":"blake3","digest":"d3f82f994b364938b5dde2c3967115ede53d28eef653fb2bb43d8f80b97fe43a","format":"tar.gz","path":"nvim-macos-arm64/bin/nvim","providers":[{"url":"https://github.com/neovim/neovim/releases/download/v0.12.4/nvim-macos-arm64.tar.gz"}]}}}

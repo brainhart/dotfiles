@@ -1,0 +1,18 @@
+#!/usr/bin/env dotslash
+
+{
+  "name": "regctl",
+  "platforms": {
+    "macos-aarch64": {
+      "size": 11494226,
+      "hash": "blake3",
+      "digest": "3e05a97dc3623f30e0a882e3b9885b6af5f88e100c2dacb9324eafffe23a45d9",
+      "path": "regctl",
+      "providers": [
+        {
+          "url": "https://github.com/regclient/regclient/releases/download/v0.11.5/regctl-darwin-arm64"
+        }
+      ]
+    }
+  }
+}

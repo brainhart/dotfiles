@@ -1,0 +1,19 @@
+#!/usr/bin/env dotslash
+
+{
+  "name": "shellharden",
+  "platforms": {
+    "macos-aarch64": {
+      "size": 198918,
+      "hash": "blake3",
+      "digest": "9646ec3223e7b35f18167d630c413abff4adf5baa2f13115f26f5179920f81b5",
+      "format": "tar.gz",
+      "path": "shellharden",
+      "providers": [
+        {
+          "url": "https://github.com/anordal/shellharden/releases/download/v4.3.2/shellharden-aarch64-apple-darwin.tar.gz"
+        }
+      ]
+    }
+  }
+}

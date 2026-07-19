@@ -1,0 +1,19 @@
+#!/usr/bin/env dotslash
+
+{
+  "name": "restate",
+  "platforms": {
+    "macos-aarch64": {
+      "size": 42872208,
+      "hash": "blake3",
+      "digest": "03c42802fb741d33afe84e666c9c250604d0c4529da19769935a3df4a5074110",
+      "format": "tar.xz",
+      "path": "restate-cli-aarch64-apple-darwin/restate",
+      "providers": [
+        {
+          "url": "https://github.com/restatedev/restate/releases/download/v1.7.2/restate-cli-aarch64-apple-darwin.tar.xz"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,3 @@
+#!/usr/bin/env dotslash
+
+{"name":"cheat","platforms":{"macos-aarch64":{"size":4710843,"hash":"blake3","digest":"9cef0bd88324c6cc9eecb684b34e6a68a3b974488b29044edd216cc98a650c29","format":"gz","path":"cheat","providers":[{"url":"https://github.com/cheat/cheat/releases/download/5.1.0/cheat-darwin-arm64.gz"}]}}}

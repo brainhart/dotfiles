@@ -1,0 +1,3 @@
+#!/usr/bin/env dotslash
+
+{"name":"grex","platforms":{"macos-aarch64":{"size":1153814,"hash":"blake3","digest":"d2e840ed20e7755aba47c1dfebf00080cfe526f052421e08f3d77c116c5b5c9e","format":"tar.gz","path":"grex","providers":[{"url":"https://github.com/pemistahl/grex/releases/download/v1.4.6/grex-v1.4.6-aarch64-apple-darwin.tar.gz"}]}}}

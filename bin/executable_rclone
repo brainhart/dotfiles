@@ -1,0 +1,19 @@
+#!/usr/bin/env dotslash
+
+{
+  "name": "rclone",
+  "platforms": {
+    "macos-aarch64": {
+      "size": 30390226,
+      "hash": "blake3",
+      "digest": "806044f5faed16b74dddd1473db1ade7ef3562f5be8c9ff5595a5b3c8df3f6c2",
+      "format": "zip",
+      "path": "rclone-v1.74.4-osx-arm64/rclone",
+      "providers": [
+        {
+          "url": "https://github.com/rclone/rclone/releases/download/v1.74.4/rclone-v1.74.4-osx-arm64.zip"
+        }
+      ]
+    }
+  }
+}

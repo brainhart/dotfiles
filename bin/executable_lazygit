@@ -1,0 +1,3 @@
+#!/usr/bin/env dotslash
+
+{"name":"lazygit","platforms":{"macos-aarch64":{"size":6498828,"hash":"blake3","digest":"f37f23cc5613fcd7cd829786a14821ff8476b753da078dc61181e9e965d213f7","format":"tar.gz","path":"lazygit","providers":[{"url":"https://github.com/jesseduffield/lazygit/releases/download/v0.63.1/lazygit_0.63.1_darwin_arm64.tar.gz"}]}}}

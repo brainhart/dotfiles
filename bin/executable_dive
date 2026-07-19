@@ -1,0 +1,19 @@
+#!/usr/bin/env dotslash
+
+{
+  "name": "dive",
+  "platforms": {
+    "macos-aarch64": {
+      "size": 3856461,
+      "hash": "blake3",
+      "digest": "b2d31e2f2b36b549ef2d11d726bf45668391cc8e2844c1e903e6d2a3ddb60b9c",
+      "format": "tar.gz",
+      "path": "dive",
+      "providers": [
+        {
+          "url": "https://github.com/wagoodman/dive/releases/download/v0.13.1/dive_0.13.1_darwin_arm64.tar.gz"
+        }
+      ]
+    }
+  }
+}

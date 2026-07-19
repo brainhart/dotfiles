@@ -1,0 +1,18 @@
+#!/usr/bin/env dotslash
+
+{
+  "name": "jq",
+  "platforms": {
+    "macos-aarch64": {
+      "size": 841504,
+      "hash": "blake3",
+      "digest": "651534e32cf0d20894158c10fe984c89160650ca8e81ca9a545b501db5acac9a",
+      "path": "jq",
+      "providers": [
+        {
+          "url": "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-macos-arm64"
+        }
+      ]
+    }
+  }
+}

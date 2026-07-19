@@ -1,0 +1,3 @@
+#!/usr/bin/env dotslash
+
+{"name":"just","platforms":{"macos-aarch64":{"size":2144834,"hash":"blake3","digest":"ea3e7459a5b2ef73332b475af8ad9340dee5c2e8717cae5656f69c13cff4c2b3","format":"tar.gz","path":"just","providers":[{"url":"https://github.com/casey/just/releases/download/1.57.0/just-1.57.0-aarch64-apple-darwin.tar.gz"}]}}}

@@ -1,0 +1,19 @@
+#!/usr/bin/env dotslash
+
+{
+  "name": "flux",
+  "platforms": {
+    "macos-aarch64": {
+      "size": 23335304,
+      "hash": "blake3",
+      "digest": "398a28d2ec12b3fcc84d2a5889e7936d8a7414b0052ee405089834b246b1efda",
+      "format": "tar.gz",
+      "path": "flux",
+      "providers": [
+        {
+          "url": "https://github.com/fluxcd/flux2/releases/download/v2.9.2/flux_2.9.2_darwin_arm64.tar.gz"
+        }
+      ]
+    }
+  }
+}

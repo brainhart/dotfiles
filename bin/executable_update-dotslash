@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+source_dir="${CHEZMOI_SOURCE_DIR:-$HOME/.local/share/chezmoi}"
+catalog="${DOTSLASH_TOOL_CATALOG:-$source_dir/dot_config/dotslash/tools.json}"
+
+for command in curl dotslash jq rg; do
+  command -v "$command" >/dev/null || {
+    echo "missing required command: $command" >&2
+    exit 1
+  }
+done
+
+if (($#)); then
+  selection=$(printf '%s\n' "$@" | jq -Rsc 'split("\n")[:-1]')
+else
+  selection='[]'
+fi
+
+while IFS= read -r tool; do
+  name=$(jq -r .name <<<"$tool")
+  repo=$(jq -r .repo <<<"$tool")
+  asset_regex=$(jq -r .asset <<<"$tool")
+  path_template=$(jq -r .path <<<"$tool")
+
+  release_url=$(curl -fsSL -o /dev/null -w '%{url_effective}' "https://github.com/$repo/releases/latest")
+  tag=${release_url#*'/releases/tag/'}
+  tag_url=${tag//\//%2F}
+  assets=$(curl -fsSL "https://github.com/$repo/releases/expanded_assets/$tag_url" |
+    rg -o "/$repo/releases/download/[^\"?]+" |
+    sed 's#^.*/##' |
+    jq -Rsc --arg regex "$asset_regex" 'split("\n")[:-1] | map(select(test($regex)))')
+  asset_count=$(jq length <<<"$assets")
+  if ((asset_count != 1)); then
+    echo "$name: expected one asset matching $asset_regex, found $asset_count" >&2
+    exit 1
+  fi
+
+  asset=$(jq -r '.[0]' <<<"$assets")
+  url="https://github.com/$repo/releases/download/$tag_url/$asset"
+  path=${path_template//\{tag\}/$tag}
+  version=${tag#v}
+  path=${path//\{version\}/$version}
+  entry=$(dotslash -- create-url-entry "$url" | jq --arg path "$path" '
+    .path = $path | if (.format | startswith("TODO:")) then del(.format) else . end
+  ')
+  output="$source_dir/bin/executable_$name"
+  temporary=$(mktemp "${TMPDIR:-/tmp}/dotslash.XXXXXX")
+  {
+    printf '%s\n\n' '#!/usr/bin/env dotslash'
+    jq -n --arg name "$name" --argjson entry "$entry" '{name:$name,platforms:{"macos-aarch64":$entry}}'
+  } >"$temporary"
+  chmod 0755 "$temporary"
+  mv "$temporary" "$output"
+  echo "$name: $tag ($asset)"
+done < <(jq -c --argjson selection "$selection" '
+  .tools[] | select(($selection | length) == 0 or (.name as $name | $selection | index($name)))
+' "$catalog")

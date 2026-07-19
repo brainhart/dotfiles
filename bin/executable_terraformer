@@ -1,0 +1,18 @@
+#!/usr/bin/env dotslash
+
+{
+  "name": "terraformer",
+  "platforms": {
+    "macos-aarch64": {
+      "size": 543327650,
+      "hash": "blake3",
+      "digest": "26e221b6112a708f1b0e334dbd0cea9abf3f7e2dc6a874a29f811276b76a80d7",
+      "path": "terraformer",
+      "providers": [
+        {
+          "url": "https://github.com/GoogleCloudPlatform/terraformer/releases/download/0.8.30/terraformer-all-darwin-arm64"
+        }
+      ]
+    }
+  }
+}

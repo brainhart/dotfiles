@@ -1,0 +1,3 @@
+#!/usr/bin/env dotslash
+
+{"name":"rg","platforms":{"macos-aarch64":{"size":1764284,"hash":"blake3","digest":"3df4b12b59497a9c7ca9a914d4cdd9614fa3daa9b2afaf839d803940a4eb960a","format":"tar.gz","path":"ripgrep-15.2.0-aarch64-apple-darwin/rg","providers":[{"url":"https://github.com/BurntSushi/ripgrep/releases/download/15.2.0/ripgrep-15.2.0-aarch64-apple-darwin.tar.gz"}]}}}

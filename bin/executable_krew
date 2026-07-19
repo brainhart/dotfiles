@@ -1,0 +1,19 @@
+#!/usr/bin/env dotslash
+
+{
+  "name": "krew",
+  "platforms": {
+    "macos-aarch64": {
+      "size": 4922381,
+      "hash": "blake3",
+      "digest": "150dcdb3a627120f43276fe6c32bb179ce9047c82bd8db3b44096f186d4c3ddb",
+      "format": "tar.gz",
+      "path": "krew-darwin_arm64",
+      "providers": [
+        {
+          "url": "https://github.com/kubernetes-sigs/krew/releases/download/v0.5.0/krew-darwin_arm64.tar.gz"
+        }
+      ]
+    }
+  }
+}

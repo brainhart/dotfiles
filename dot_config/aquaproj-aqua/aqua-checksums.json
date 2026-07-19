@@ -1,6 +1,31 @@
 {
   "checksums": [
     {
+      "id": "github_release/github.com/99designs/aws-vault/v7.2.0/aws-vault-darwin-amd64.dmg",
+      "checksum": "C0642DE33329EB6EADE70532F0C9EB769D2A1B52DFA56B63196EF51C7DEA6445",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/99designs/aws-vault/v7.2.0/aws-vault-darwin-arm64.dmg",
+      "checksum": "9887EB8F6C2BD431E814B32B9EC8A6BD394DBEB0C60822D76ED9BE3C84CA1CC5",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/99designs/aws-vault/v7.2.0/aws-vault-linux-amd64",
+      "checksum": "B92BCFC4A78AA8C547AE5920D196943268529C5DBC9C5ACA80B797A18A5D0693",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/99designs/aws-vault/v7.2.0/aws-vault-linux-arm64",
+      "checksum": "176FA59B9E3981720361CD6ED87B5389741953C62BA0A6FA4F2DB401F8BEF735",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/99designs/aws-vault/v7.2.0/aws-vault-windows-arm64.exe",
+      "checksum": "B004FEC45F9924CD3F897EFD3D3236106C93CB6EC88308C979C8671CF20C42BC",
+      "algorithm": "sha256"
+    },
+    {
       "id": "github_release/github.com/BurntSushi/ripgrep/14.1.1/ripgrep-14.1.1-aarch64-apple-darwin.tar.gz",
       "checksum": "24AD76777745FBFF131C8FBC466742B011F925BFA4FFFA2DED6DEF23B5B937BE",
       "algorithm": "sha256"
@@ -671,6 +696,36 @@
       "algorithm": "sha256"
     },
     {
+      "id": "github_release/github.com/terrastruct/tala/v0.4.3/tala-v0.4.3-linux-amd64.tar.gz",
+      "checksum": "C5CDD95632BE760C8546F30D860EE358698180448F82097A5990783737250A26",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/terrastruct/tala/v0.4.3/tala-v0.4.3-linux-arm64.tar.gz",
+      "checksum": "268E000592486A418740382233EBA1D3CAA79401F52E344696145D82FAF7894D",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/terrastruct/tala/v0.4.3/tala-v0.4.3-macos-amd64.tar.gz",
+      "checksum": "2145319195E5E6B663945D364928E8E0987F8D96BACE9A34C026397DD5F82CC8",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/terrastruct/tala/v0.4.3/tala-v0.4.3-macos-arm64.tar.gz",
+      "checksum": "E1D61BD23AD2A70B46FAD232A47168FC82B5D21CFE57274E028B609B985D0226",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/terrastruct/tala/v0.4.3/tala-v0.4.3-windows-amd64.tar.gz",
+      "checksum": "543495F873DB7992E7AF4B0F2C59DAB4F5086768B4BD09D196DC0C7F447889DE",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/terrastruct/tala/v0.4.3/tala-v0.4.3-windows-arm64.tar.gz",
+      "checksum": "6BDEF035A65F87A7DF693A6362EA7DE28A4EDB97FB2942673838D9A3788F2FF3",
+      "algorithm": "sha256"
+    },
+    {
       "id": "github_release/github.com/tsenart/vegeta/v12.12.0/vegeta_12.12.0_darwin_amd64.tar.gz",
       "checksum": "683B3300B0C7ACF4B875C39A3A6FFD5A185231281AC190736411A888AE8CC587",
       "algorithm": "sha256"
@@ -751,6 +806,96 @@
       "algorithm": "sha256"
     },
     {
+      "id": "http/amazon-ecr-credential-helper-releases.s3.us-east-2.amazonaws.com/0.12.0/linux-amd64/docker-credential-ecr-login",
+      "checksum": "A22AB6D59DBAC777B8FB31984709461DA00A4C778B6AE14C8D3729E8D5DED1A6",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "http/amazon-ecr-credential-helper-releases.s3.us-east-2.amazonaws.com/0.12.0/windows-amd64/docker-credential-ecr-login.exe",
+      "checksum": "1545D0C797AD7D539F0B85EF6C8702193A93764D537B01F93B55CEFAE994C9E1",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "http/get.helm.sh/helm-v4.2.3-darwin-amd64.tar.gz",
+      "checksum": "FF3AC86755A45F3422473BC1200776AAC0FE04C5766ABE6CA66699F7B564B23B",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "http/get.helm.sh/helm-v4.2.3-darwin-arm64.tar.gz",
+      "checksum": "048ECF5AD3160F83D918F9FE945238D2132B079640F7B106175331C25F242C64",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "http/get.helm.sh/helm-v4.2.3-linux-amd64.tar.gz",
+      "checksum": "E9B88B4EE95B18C706839C28D3A0220E5BC470E9CD9262410C90793C45FF8B7C",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "http/get.helm.sh/helm-v4.2.3-linux-arm64.tar.gz",
+      "checksum": "21ABD9354D39B2CD79A8D76BE6912CD137A983CBF997193503FB8A6A6E2F2785",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "http/get.helm.sh/helm-v4.2.3-windows-amd64.tar.gz",
+      "checksum": "02C6137BB5F050479193AFAD5A28804E9EDC3BEEAB7E7B53A6E1499C9BA387EF",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "http/golang.org/dl/go1.26.5.darwin-amd64.tar.gz",
+      "checksum": "6231D8D3B8F5552EC6CBF6D685BDD5482E1E703214B120E89B3BF0D7BF1EF725",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "http/golang.org/dl/go1.26.5.darwin-arm64.tar.gz",
+      "checksum": "EFB87FF28AF9A188D0536EF5D42E63DD52BA8263CD7344A993CC48DD11DEDB6A",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "http/golang.org/dl/go1.26.5.linux-amd64.tar.gz",
+      "checksum": "5C2C3B16CAEFA1D968A94C1DACA04A7CA301A496D9B086E17AD77BB81393F053",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "http/golang.org/dl/go1.26.5.linux-arm64.tar.gz",
+      "checksum": "FE4789E92B1F33358680864BBE8704289E7BB5FC207D80623C308935BD696D49",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "http/golang.org/dl/go1.26.5.windows-amd64.zip",
+      "checksum": "97E6B2A833B6D89F9FF17D25419AC0A7E3B482A044E9AB18CDEF834BD834FD38",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "http/golang.org/dl/go1.26.5.windows-arm64.zip",
+      "checksum": "F96EE46396D69F1E231C8D981EC6A70216238A646A1F2CD74AEA0D0016BBC017",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "http/releases.hashicorp.com/terraform/1.15.8/terraform_1.15.8_darwin_amd64.zip",
+      "checksum": "E2E812E783771159BF758FD4E55D6DC9BB08F63E2AF2C63D212721807A02C5DC",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "http/releases.hashicorp.com/terraform/1.15.8/terraform_1.15.8_darwin_arm64.zip",
+      "checksum": "F210110C5698B94D803A7A63CDB0251B5455C150841478808E2BBB343F95ED68",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "http/releases.hashicorp.com/terraform/1.15.8/terraform_1.15.8_linux_amd64.zip",
+      "checksum": "D25CE7B6902013AD905DB3D2EAB0BE4CD905887FE88B81A6171B8D5503C31F3D",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "http/releases.hashicorp.com/terraform/1.15.8/terraform_1.15.8_linux_arm64.zip",
+      "checksum": "8891E9DCEDC9E3B8950BC6AF9D4D8AF1F4CFADE3062F53B9DC403A89F6CE8C9C",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "http/releases.hashicorp.com/terraform/1.15.8/terraform_1.15.8_windows_amd64.zip",
+      "checksum": "2FF41D2129AFB1982733C132C61A8D6EF038F879F3AEEDE7FC28B8B8B24ACF02",
+      "algorithm": "sha256"
+    },
+    {
       "id": "http/releases.hashicorp.com/terraform/1.9.5/terraform_1.9.5_darwin_amd64.zip",
       "checksum": "C28945C377D04B1D237F704729258234C471C8C4F617A1303042862F708EBBC6",
       "algorithm": "sha256"
@@ -778,6 +923,11 @@
     {
       "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.220.2/registry.yaml",
       "checksum": "64A3578193FC5B41D1A3A1E20CF326AF7EC4F5F382AC27E29C595DB30E9B8017",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.539.0/registry.yaml",
+      "checksum": "E022DF660F01744ABFE3E93FABC7FE17E36885549E447BB2667208D2E5804F4D",
       "algorithm": "sha256"
     }
   ]

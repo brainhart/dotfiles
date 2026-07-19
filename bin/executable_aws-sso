@@ -1,0 +1,18 @@
+#!/usr/bin/env dotslash
+
+{
+  "name": "aws-sso",
+  "platforms": {
+    "macos-aarch64": {
+      "size": 41189170,
+      "hash": "blake3",
+      "digest": "53c67fdbad7886308b1e133094a9fcc590220df470a9c584fee34e2c1ba055ff",
+      "path": "aws-sso",
+      "providers": [
+        {
+          "url": "https://github.com/synfinatic/aws-sso-cli/releases/download/v2.3.1/aws-sso-2.3.1-darwin-arm64"
+        }
+      ]
+    }
+  }
+}

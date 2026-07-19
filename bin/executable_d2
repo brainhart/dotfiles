@@ -1,0 +1,19 @@
+#!/usr/bin/env dotslash
+
+{
+  "name": "d2",
+  "platforms": {
+    "macos-aarch64": {
+      "size": 20182721,
+      "hash": "blake3",
+      "digest": "6deaa312c9af0f038253f97fc820e1d17ee4853e7aef519a90b51d9538d05274",
+      "format": "tar.gz",
+      "path": "d2-v0.7.1/bin/d2",
+      "providers": [
+        {
+          "url": "https://github.com/terrastruct/d2/releases/download/v0.7.1/d2-v0.7.1-macos-arm64.tar.gz"
+        }
+      ]
+    }
+  }
+}

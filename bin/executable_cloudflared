@@ -1,0 +1,3 @@
+#!/usr/bin/env dotslash
+
+{"name":"cloudflared","platforms":{"macos-aarch64":{"size":18959119,"hash":"blake3","digest":"b0b3dc29f31b168ab348df5f4f5143afbd7a6d02e2c5cad31d87ee143afd8587","format":"tar.gz","path":"cloudflared","providers":[{"url":"https://github.com/cloudflare/cloudflared/releases/download/2026.7.2/cloudflared-darwin-arm64.tgz"}]}}}

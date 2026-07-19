@@ -1,0 +1,3 @@
+#!/usr/bin/env dotslash
+
+{"name":"fzf","platforms":{"macos-aarch64":{"size":1890852,"hash":"blake3","digest":"3cec2e28d741817fc3c5de5b4318e863bf613d577a6d37b327259d817136a1f6","format":"tar.gz","path":"fzf","providers":[{"url":"https://github.com/junegunn/fzf/releases/download/v0.74.1/fzf-0.74.1-darwin_arm64.tar.gz"}]}}}

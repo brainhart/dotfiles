@@ -1,0 +1,19 @@
+#!/usr/bin/env dotslash
+
+{
+  "name": "volta",
+  "platforms": {
+    "macos-aarch64": {
+      "size": 12863777,
+      "hash": "blake3",
+      "digest": "f028146372745d36b2377484c103b0bf426ff2b0fd519042f1512fc5b0ab48cd",
+      "format": "tar.gz",
+      "path": "volta",
+      "providers": [
+        {
+          "url": "https://github.com/volta-cli/volta/releases/download/v2.0.2/volta-2.0.2-macos.tar.gz"
+        }
+      ]
+    }
+  }
+}

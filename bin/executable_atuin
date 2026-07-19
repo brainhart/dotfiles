@@ -1,0 +1,25 @@
+#!/usr/bin/env dotslash
+
+{
+  "name": "atuin",
+  "platforms": {
+    "macos-aarch64": {
+      "size": 10948509,
+      "hash": "blake3",
+      "digest": "2630b18a45f1201abb49e80cbe3ba3c136b504321e978436b3c654ff6ca671ca",
+      "format": "tar.gz",
+      "path": "atuin-aarch64-apple-darwin/atuin",
+      "providers": [
+        {
+          "url": "https://github.com/atuinsh/atuin/releases/download/v18.4.0/atuin-aarch64-apple-darwin.tar.gz"
+        },
+        {
+          "type": "github-release",
+          "repo": "https://github.com/atuinsh/atuin",
+          "tag": "v18.4.0",
+          "name": "atuin-aarch64-apple-darwin.tar.gz"
+        }
+      ]
+    }
+  }
+}

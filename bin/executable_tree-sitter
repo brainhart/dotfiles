@@ -1,0 +1,19 @@
+#!/usr/bin/env dotslash
+
+{
+  "name": "tree-sitter",
+  "platforms": {
+    "macos-aarch64": {
+      "size": 6830291,
+      "hash": "blake3",
+      "digest": "81fb38ff355d3258742ce5c5d4eb85a983fc8bf2635731c28a22d70ed2266fd0",
+      "format": "gz",
+      "path": "tree-sitter",
+      "providers": [
+        {
+          "url": "https://github.com/tree-sitter/tree-sitter/releases/download/v0.26.11/tree-sitter-macos-arm64.gz"
+        }
+      ]
+    }
+  }
+}
