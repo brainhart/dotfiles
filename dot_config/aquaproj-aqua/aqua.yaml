@@ -7,7 +7,7 @@ packages:
 # Retained in Aqua: the only macOS GitHub artifact is a DMG, unsupported by DotSlash.
 - name: 99designs/aws-vault@v7.2.0
 # Retained in Aqua: release archives are hosted on get.helm.sh, not GitHub assets.
-- name: helm/helm@v4.2.3
+- name: helm/helm@v4.2.4
 # Retained in Aqua: the project publishes no GitHub release assets.
 - name: awslabs/amazon-ecr-credential-helper@v0.12.0
 # Retained in Aqua: Go is a complete writable runtime tree, not a single CLI artifact.
