@@ -11,6 +11,6 @@ packages:
 # Retained in Aqua: the project publishes no GitHub release assets.
 - name: awslabs/amazon-ecr-credential-helper@v0.12.0
 # Retained in Aqua: Go is a complete writable runtime tree, not a single CLI artifact.
-- name: golang/go@go1.26.5
+- name: golang/go@go1.27.1
 # Retained in Aqua: Tala publishes no public GitHub release assets.
 - name: terrastruct/tala@v0.4.3
