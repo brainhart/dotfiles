@@ -3,7 +3,7 @@ registries:
   ref: v4.539.0 # renovate: depName=aquaproj/aqua-registry
 packages:
 # Retained in Aqua: official binaries are hosted outside GitHub Releases.
-- name: hashicorp/terraform@v1.15.8
+- name: hashicorp/terraform@v1.16.1
 # Retained in Aqua: the only macOS GitHub artifact is a DMG, unsupported by DotSlash.
 - name: 99designs/aws-vault@v7.2.0
 # Retained in Aqua: release archives are hosted on get.helm.sh, not GitHub assets.
